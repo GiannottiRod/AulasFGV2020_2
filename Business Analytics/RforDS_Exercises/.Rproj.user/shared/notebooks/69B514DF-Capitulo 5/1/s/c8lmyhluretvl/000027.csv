@@ -1,0 +1,7 @@
+"0","flights %>% mutate("
+"0","  rank_delay = min_rank("
+"0","    desc("
+"0","      arr_delay + dep_delay"
+"0",")))%>% "
+"0","  arrange(rank_delay) %>% "
+"0","  filter(rank_delay <= 10)"
