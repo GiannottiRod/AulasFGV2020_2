@@ -12,3 +12,6 @@
 ## Linguagens Principais
 * R
 * Python
+
+### Links úteis
+* https://r4ds.had.co.nz/ - R for Data Science
