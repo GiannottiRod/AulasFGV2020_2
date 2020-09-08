@@ -1,0 +1,7 @@
+"0","mbl <- read_excel(""DADOSPAX.xlsx"", sheet = ""MOBILE"") %>% as_tibble()"
+"2","New names:
+* `` -> ...12
+* `` -> ...13
+* `` -> ...15
+"
+"0","head(mbl)"

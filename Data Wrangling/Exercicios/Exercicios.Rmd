@@ -1,0 +1,218 @@
+---
+title: "Exercicios DW"
+output: html_notebook
+---
+
+# Inicialização
+
+```{r}
+install.packages("tidyverse")
+install.packages("readxl")
+```
+
+```{r}
+library(tidyverse)
+library(magrittr)
+library(readxl)
+```
+
+```{r}
+setwd("D:/Documents/FGV/data wrangling")
+```
+
+# Exercício A2
+
+    Exercicio A2 : Arquivo MOBILE fornecido pelo Professor
+  calcular:
+   1 mean
+   2 sd
+   3 median 
+   4 max
+   5 sqrt
+   6 log10 da var IDADEMED
+  calcular o número de celulares por habitante e 
+  adicionar essa variavel ao arquivo original
+
+```{r}
+mbl <- read_excel("DADOSPAX.xlsx", sheet = "MOBILE") %>% as_tibble()
+head(mbl)
+```
+
+colunas 12 - 15 parecem ser vazias e / ou descrição das variáveis. Vamos retirá-las
+
+```{r}
+mbl <- mbl[,-c(12:15)]
+head(mbl)
+```
+
+Hora de calcular 
+   1 mean
+   2 sd
+   3 median 
+   4 max
+   5 sqrt
+   6 log10 da var IDADEMED
+   
+```{r}
+mbl$IDADEMED %>% summary()
+mbl$IDADEMED %>% is.na()
+```
+Primeiro conferindo se IDADEMED é númerico e se possui NA
+   
+```{r}
+print("mean")
+mbl$IDADEMED %>% mean()
+print("sd")
+mbl$IDADEMED %>% sd()
+print("median")
+mbl$IDADEMED %>% median()
+print("max")
+mbl$IDADEMED %>% max()
+```
+
+
+```{r}
+print("sqrt")
+mbl$IDADEMED %>% sqrt()
+```
+
+
+```{r}
+print("log10")
+mbl$IDADEMED %>% log10()
+```
+
+calcular o número de celulares por habitante e adicionar essa variavel ao arquivo original
+
+```{r}
+mbl %<>% mutate(CELULARPORHAB = MOBPHONE / POP)
+head(mbl)
+```
+  
+
+# Exercício A3
+
+
+   gere um vetor X com os labels 'peso', 'altura', 'idade', 'numero_de_irmÃ£os' 
+   gere um vetor Y com os valores correspondentes Invente!
+   gere um data frame onde a primeira coluna sao os labels e a segunda coluna o vetor Y
+   dê o print desse db
+   analise a estrutura desse df
+
+   agregue ao vetor X o label 'nome"
+   agregue ao vetor Y um nome (invente)
+   gere um data frame onde a primeira coluna sao os labels e a segunda coluna os valores
+   analise a estrutura desse df
+
+   procure no google> como alterar o nome de uma única variavel no r
+   procure no google> como alterar de todas as variáveis ao mesmo tempo no r
+   
+```{r}
+x <- c('peso', 'altura', 'idade', 'numero_de_irmaos')
+y <- c(90,180,30,6)
+df <- data.frame(x, y)
+df
+```
+
+```{r}
+df %>% str()
+```
+O dataframe df é do tipo dataframe (duh) e possui duas variaveis cada uma com 4 valores, a primeira variável (x)
+é do tipo fator e possui 4 niveis distintos, enquanto a segunda variavel (y) é numerica.
+
+```{r}
+names(x) <- "nome"
+names(y) <- "invente"
+df2 <- data.frame(x, y)
+df2
+```
+```{r}
+colnames(df) <- c("nome","invente")
+df
+
+df %<>% rename(valores = invente)
+df
+```
+
+
+   
+# Exercício B1 
+  considerar o db MOBILE--> analisar e plotar NIVDES
+  considerar a db MOBILE--> analisar e plotar SISGOV
+entre na base de dados, veja qual o pais que está¡ em branco e corrija
+COMANDO -->   which(is.na(dd$SISGOV))
+                apresente o grafico final após a correção
+                
+
+```{r}
+head(mbl)
+```
+
+```{r}
+mbl$NIVDES %>% summary()
+mbl$NIVDES %>% str()
+```
+
+Como só temos 2 niveis vou converter em fator
+
+```{r}
+mbl$NIVDES %<>% as_factor()
+mbl$NIVDES %>% summary()
+mbl$NIVDES %>% str()
+```
+```{r}
+
+plot(mbl$NIVDES, col = c("cadetblue3" , "cadetblue1"), ylim = c(0,50))
+```
+```{r}
+mbl$SISGOV %>% summary()
+mbl$SISGOV %>% as_factor()
+```
+Um achado importante > entrada 30 "Pralamentarismo"
+Claramente um erro de digitação
+```{r}
+which(mbl$SISGOV == "Pralamentarismo")
+```
+Encontramos a entrada digitada errada
+
+```{r}
+mbl$SISGOV[30] <- "Parlamentarismo"
+mbl$SISGOV %<>% as_factor()
+```
+
+```{r}
+plot(mbl$SISGOV)
+```
+Não achei nenhum NA em SISGOV, somente em 
+
+```{r}
+mbl[which(is.na(mbl$GROSSINC)),2]
+
+mbl[which(is.na(mbl$POP)),2]
+
+mbl[which(is.na(mbl$CELULARPORHAB)),2]
+```
+
+
+# Exercício B2
+Exercicio: considere os dados MOBILE
+  cruze as vars NIVDES E SISGOV, 
+  analise os graficos NIVDES por SISGOV(eixo X)
+  analise os graficos SISGOV por NIVDES (eixo X)
+  analisando os graficos, qual a relação entre as vars?
+  qual seria seu sistema de governo preferido, com base apenas nesses dados?
+  
+Monarquia Constitucional (por que a palavra desenvolvido carrega sentido de superioridade, quem não quer ser desenvolvido?)
+  
+  
+```{r}
+plot(mbl$NIVDES ~ mbl$SISGOV)
+plot(mbl$SISGOV ~ mbl$NIVDES)
+```
+A grande maioria dos paises presidencialistas são emergentes e a grande maioria dos paises com monarquias constitucionais são desenvolvidos
+
+  qual seria seu sistema de governo preferido, com base apenas nesses dados?
+  
+Monarquia Constitucional (por que a palavra desenvolvido carrega sentido de superioridade, quem não quer ser desenvolvido?)
+
+
