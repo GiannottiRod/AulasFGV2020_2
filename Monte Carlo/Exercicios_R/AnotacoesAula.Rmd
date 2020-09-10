@@ -1,0 +1,52 @@
+---
+title: "Anotacoes de aula"
+author: "Rodrigo Giannotti"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(magrittr)
+library(lubridate)
+library(e1071)
+library(EnvStats)
+```
+
+# Aula 10/09
+
+## Metodos de aleatorização
+* *stats*::**sample**: pega valores aleatoriamente de uma lista de valores disponíveis, com ou sem reposição
+* *stats*::**runif** (r unif): gera valores uniformemente distribuidos
+* *stats*::**rnorm**: gera valores normalmente distribuidos
+* *stats*::**rbinom**: simula o numero de sucessos baseado no número de tentativas e a prob de sucesso
+* *EnvStats*::**rtri**: gera valores triangularmente distribuidos
+* *e1071*::**rdiscrete**: gera valores em uma distribuição discreta especificada
+
+*Vale notar que todas essas funções que começam com r possuem suas variações começando por d, p e q, onde ao invés de número de observações estas recebem arrays de quantis ou de probabilidades e possuem algumas outras opções*
+
+Exemplos:
+```{r}
+# ?runif
+unif <- runif(n = 10000, min = 0, max = 1)
+unif %>% hist(main = "Uniforme")
+
+# ?rnorm
+norm <- rnorm(n = 10000, mean = 0, sd = 1)
+norm %>% hist(breaks = 50, main = "Normal")
+
+# ?rbinom
+binom <- rbinom(n = 10000, size = 1, prob = .5)
+binom %>% hist(main = "Binomial")
+
+# ?rtri
+triang <- rtri(n = 10000, min = 0, max = 1, mode = 0.8)
+triang %>% hist(breaks = 50, main = "Triangular")
+
+# ?rdiscrete
+demanda <- 14:25
+probabilidades <- runif(length(demanda))
+discreta <- rdiscrete(n = 1000, probs = probabilidades, values = demanda)
+barplot(probabilidades, main = "Probabilidades usadas na distribuição discreta")
+discreta %>% hist(breaks = 12, include.lowest = T)
+```

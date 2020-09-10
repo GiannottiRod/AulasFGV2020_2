@@ -1,0 +1,4 @@
+"0","ggplot(data = discreta, mapping = aes(x = demanda))
+"
+"2","Error: `data` must be a data frame, or other object coercible by `fortify()`, not an integer vector
+"

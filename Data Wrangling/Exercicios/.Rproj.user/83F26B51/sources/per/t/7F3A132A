@@ -3,7 +3,7 @@
     "path": "D:/Documents/GitHub/AulasFGV2020_2/Data Wrangling/Exercicios/Exercicios.Rmd",
     "project_path": "Exercicios.Rmd",
     "type": "r_markdown",
-    "hash": "2499260493",
+    "hash": "2555693330",
     "contents": "",
     "dirty": false,
     "created": 1599582986980.0,
@@ -11,16 +11,16 @@
     "relative_order": 1,
     "properties": {
         "chunk_output_type": "inline",
-        "cursorPosition": "18,0",
-        "scrollLine": "17",
+        "cursorPosition": "217,0",
+        "scrollLine": "169",
         "docOutlineVisible": "1"
     },
     "folds": "",
-    "lastKnownWriteTime": 1598972487,
+    "lastKnownWriteTime": 1599583310,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1599583062475,
+    "last_content_update": 1599583310,
     "read_only": false,
     "read_only_alternatives": []
 }
