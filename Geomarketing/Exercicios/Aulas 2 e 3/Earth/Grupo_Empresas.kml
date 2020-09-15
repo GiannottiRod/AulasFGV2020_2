@@ -1,0 +1,2145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Grupo_Empresas.txt</name>
+	<open>1</open>
+	<Schema name="Grupo_Empresas" id="S_Grupo_Empresas_ISISS">
+		<SimpleField type="int" name="ID_Empresa"><displayName>&lt;b&gt;ID Empresa&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="CEP"><displayName>&lt;b&gt;CEP&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="int" name="Faturamento_2019__R__"><displayName>&lt;b&gt;Faturamento 2019 (R$)&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Gestor_da_Empresa"><displayName>&lt;b&gt;Gestor da Empresa&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="Endereço"><displayName>&lt;b&gt;Endereço&lt;/b&gt;</displayName>
+</SimpleField>
+	</Schema>
+	<StyleMap id="pointStyleMap">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#normPointStyle</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#hlightPointStyle</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="hlightPointStyle">
+		<IconStyle>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle_highlight.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text><![CDATA[<table border="0">
+  <tr><td><b>ID Empresa</b></td><td>$[Grupo_Empresas/ID_Empresa]</td></tr>
+  <tr><td><b>CEP</b></td><td>$[Grupo_Empresas/CEP]</td></tr>
+  <tr><td><b>Faturamento 2019 (R$)</b></td><td>$[Grupo_Empresas/Faturamento_2019__R__]</td></tr>
+  <tr><td><b>Gestor da Empresa</b></td><td>$[Grupo_Empresas/Gestor_da_Empresa]</td></tr>
+  <tr><td><b>Endereço</b></td><td>$[Grupo_Empresas/Endereço]</td></tr>
+</table>
+]]></text>
+		</BalloonStyle>
+	</Style>
+	<Style id="normPointStyle">
+		<IconStyle>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/placemark_circle.png</href>
+			</Icon>
+		</IconStyle>
+		<BalloonStyle>
+			<text><![CDATA[<table border="0">
+  <tr><td><b>ID Empresa</b></td><td>$[Grupo_Empresas/ID_Empresa]</td></tr>
+  <tr><td><b>CEP</b></td><td>$[Grupo_Empresas/CEP]</td></tr>
+  <tr><td><b>Faturamento 2019 (R$)</b></td><td>$[Grupo_Empresas/Faturamento_2019__R__]</td></tr>
+  <tr><td><b>Gestor da Empresa</b></td><td>$[Grupo_Empresas/Gestor_da_Empresa]</td></tr>
+  <tr><td><b>Endereço</b></td><td>$[Grupo_Empresas/Endereço]</td></tr>
+</table>
+]]></text>
+		</BalloonStyle>
+	</Style>
+	<Folder id="layer 0">
+		<name>Grupo_Empresas</name>
+		<Placemark>
+			<name>2</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">2</SimpleData>
+					<SimpleData name="CEP">06386-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">119316</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 06386-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.84248780000001,-23.53582599999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>33</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">33</SimpleData>
+					<SimpleData name="CEP">25036-200</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">9702</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 25036-200 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.32312819999998,-22.76406990000002,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>36</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">36</SimpleData>
+					<SimpleData name="CEP">25235-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">99155</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 25235-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.30449160000001,-22.7061397,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>46</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">46</SimpleData>
+					<SimpleData name="CEP">25010-026</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">74498</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 25010-026 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.75010179999998,-23.59073290000002,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>77</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">77</SimpleData>
+					<SimpleData name="CEP">04849-501</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">40051</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 04849-501 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.66238659999999,-23.74286240000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>80</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">80</SimpleData>
+					<SimpleData name="CEP">04849-501</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">110252</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 04849-501 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.66238659999999,-23.74286240000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>121</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">121</SimpleData>
+					<SimpleData name="CEP">07180-190</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">44815</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 07180-190 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.47694569999999,-23.4518157,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>124</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">124</SimpleData>
+					<SimpleData name="CEP">07181-080</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">29407</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 07181-080 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.4676992,-23.44861839999998,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>134</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">134</SimpleData>
+					<SimpleData name="CEP">07242-190</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">67992</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 07242-190 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.42233699999999,-23.44060239999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>165</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">165</SimpleData>
+					<SimpleData name="CEP">92990-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">48110</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 92990-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-51.4939853,-30.0742555,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>168</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">168</SimpleData>
+					<SimpleData name="CEP">08010-010</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">37041</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 08010-010 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.44080729999999,-23.49203979999998,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>178</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">178</SimpleData>
+					<SimpleData name="CEP">08090-555</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">56014</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 08090-555 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.4171201,-23.47566649999998,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>209</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">209</SimpleData>
+					<SimpleData name="CEP">08372-110</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">45550</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 08372-110 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.4346683,-23.60321030000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>212</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">212</SimpleData>
+					<SimpleData name="CEP">08257-010</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">38411</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 08257-010 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.43044499999998,-23.55336600000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>222</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">222</SimpleData>
+					<SimpleData name="CEP">94480-580</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">98121</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 94480-580 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-51.10411879999998,-30.07324950000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>253</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">253</SimpleData>
+					<SimpleData name="CEP">03009-010</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">4180</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 03009-010 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.62046649999999,-23.53665359999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>256</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">256</SimpleData>
+					<SimpleData name="CEP">01004-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">123254</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 01004-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.634409,-23.54958479999998,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>266</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">266</SimpleData>
+					<SimpleData name="CEP">01127-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">86722</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 01127-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.64021439999998,-23.5241155,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>297</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">297</SimpleData>
+					<SimpleData name="CEP">02873-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">105388</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 02873-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.68548870000001,-23.45736709999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>300</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">300</SimpleData>
+					<SimpleData name="CEP">02877-040</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">101179</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 02877-040 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.6817011,-23.45098400000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>341</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">341</SimpleData>
+					<SimpleData name="CEP">08410-030</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">120421</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 08410-030 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.41332950000001,-23.5438355,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>344</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">344</SimpleData>
+					<SimpleData name="CEP">08451-420</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">8239</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 08451-420 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.39682020000001,-23.54372369999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>354</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">354</SimpleData>
+					<SimpleData name="CEP">08563-010</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">26081</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 08563-010 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.35560419999999,-23.53404889999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>385</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">385</SimpleData>
+					<SimpleData name="CEP">24421-005</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">81757</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 24421-005 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.04407869999999,-22.83256210000002,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>388</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">388</SimpleData>
+					<SimpleData name="CEP">24436-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">32022</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 24436-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.07047589999999,-22.82045640000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>398</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">398</SimpleData>
+					<SimpleData name="CEP">24715-570</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">82378</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 24715-570 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-42.99648109999998,-22.79865979999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>432</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">432</SimpleData>
+					<SimpleData name="CEP">09783-210</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">2732</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 09783-210 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.52502340000002,-23.7219929,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>442</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">442</SimpleData>
+					<SimpleData name="CEP">09830-140</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">42425</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 09830-140 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.5313065,-23.77723280000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>473</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">473</SimpleData>
+					<SimpleData name="CEP">08191-300</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">38798</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 08191-300 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.3821166,-23.4806806,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>476</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">476</SimpleData>
+					<SimpleData name="CEP">08180-370</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">50668</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 08180-370 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.40642500000001,-23.4900342,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>486</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">486</SimpleData>
+					<SimpleData name="CEP">08160-700</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">60361</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 08160-700 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.41152829999998,-23.4944841,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>517</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">517</SimpleData>
+					<SimpleData name="CEP">06856-800</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">57760</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 06856-800 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.80073909999999,-23.6933999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>520</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">520</SimpleData>
+					<SimpleData name="CEP">04930-080</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">87130</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 04930-080 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.75192970000001,-23.67898239999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>530</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">530</SimpleData>
+					<SimpleData name="CEP">04950-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">72594</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 04950-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.76432439999999,-23.72383510000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>561</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">561</SimpleData>
+					<SimpleData name="CEP">27953-260</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">98792</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 27953-260 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-41.76011370000001,-22.34157629999998,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>564</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">564</SimpleData>
+					<SimpleData name="CEP">11430-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">129474</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 11430-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.2655435,-23.99023360000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>605</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">605</SimpleData>
+					<SimpleData name="CEP">25555-240</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">94411</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 25555-240 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.37124239999999,-22.7807659,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>608</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">608</SimpleData>
+					<SimpleData name="CEP">25565-150</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">4985</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 25565-150 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.36144439999998,-22.7854112,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>618</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">618</SimpleData>
+					<SimpleData name="CEP">26123-090</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">23743</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 26123-090 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.4135915,-22.7437138,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>649</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">649</SimpleData>
+					<SimpleData name="CEP">09330-010</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">109218</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 09330-010 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.4163318,-23.67739449999998,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>652</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">652</SimpleData>
+					<SimpleData name="CEP">09330-550</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">113833</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 09330-550 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.41274099999998,-23.6566852,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>662</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">662</SimpleData>
+					<SimpleData name="CEP">04218-040</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">71909</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 04218-040 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.5961021,-23.6030312,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>693</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">693</SimpleData>
+					<SimpleData name="CEP">26315-440</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">128821</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 26315-440 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.59237429999998,-22.72796980000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>696</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">696</SimpleData>
+					<SimpleData name="CEP">26010-077</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">10277</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 26010-077 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.42014369999998,-22.75615729999998,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>706</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">706</SimpleData>
+					<SimpleData name="CEP">25253-550</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">30612</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 25253-550 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.2733896,-22.6039824,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>737</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">737</SimpleData>
+					<SimpleData name="CEP">04855-230</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">72123</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 04855-230 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.68788939999999,-23.76737460000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>740</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">740</SimpleData>
+					<SimpleData name="CEP">04890-100</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">127895</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 04890-100 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.72382649999999,-23.8272691,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>750</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">750</SimpleData>
+					<SimpleData name="CEP">05660-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">24440</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 05660-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.72624329999999,-23.6152339,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>781</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">781</SimpleData>
+					<SimpleData name="CEP">23031-320</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">11091</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 23031-320 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.60829580000001,-22.9641594,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>784</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">784</SimpleData>
+					<SimpleData name="CEP">23020-715</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">125530</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 23020-715 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.60969310000002,-22.9936889,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>794</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">794</SimpleData>
+					<SimpleData name="CEP">08450-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">113468</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 08450-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.4091266,-23.54118210000003,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>825</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">825</SimpleData>
+					<SimpleData name="CEP">05890-490</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">98859</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 05890-490 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.7942654,-23.664978,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>828</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">828</SimpleData>
+					<SimpleData name="CEP">05871-240</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">115865</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 05871-240 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.77149339999999,-23.68464030000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>838</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">838</SimpleData>
+					<SimpleData name="CEP">05893-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">98726</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 05893-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.7900302,-23.6575484,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>869</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">869</SimpleData>
+					<SimpleData name="CEP">02820-090</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">29435</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 02820-090 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.70922460000001,-23.44963070000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>872</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">872</SimpleData>
+					<SimpleData name="CEP">02851-000</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">67918</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 02851-000 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.69211590000001,-23.45889039999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>882</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">882</SimpleData>
+					<SimpleData name="CEP">02871-100</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">55926</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 02871-100 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.67641909999998,-23.46480919999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>913</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">913</SimpleData>
+					<SimpleData name="CEP">04429-280</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">10935</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 04429-280 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.65838889999998,-23.68211130000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>916</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">916</SimpleData>
+					<SimpleData name="CEP">22641-370</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">21813</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 22641-370 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.6549575,-22.96804570000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>926</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">926</SimpleData>
+					<SimpleData name="CEP">21660-320</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">20135</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 21660-320 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-43.37697359999999,-22.83509969999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>957</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">957</SimpleData>
+					<SimpleData name="CEP">03814-120</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">69934</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">NÍCOLAS MIKIO ISIKI</SimpleData>
+					<SimpleData name="Endereço">CEP 03814-120 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.4873141,-23.49236489999998,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>960</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">960</SimpleData>
+					<SimpleData name="CEP">07156-100</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">64140</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">RODRIGO GREGOLIN GIANNOTTI</SimpleData>
+					<SimpleData name="Endereço">CEP 07156-100 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.4510215,-23.39572340000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>970</name>
+			<styleUrl>#pointStyleMap</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+					<Icon>
+						<href>http://maps.google.com/mapfiles/kml/pushpin/blue-pushpin.png</href>
+					</Icon>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
+			<ExtendedData>
+				<SchemaData schemaUrl="#S_Grupo_Empresas_ISISS">
+					<SimpleData name="ID_Empresa">970</SimpleData>
+					<SimpleData name="CEP">07161-180</SimpleData>
+					<SimpleData name="Faturamento_2019__R__">2421</SimpleData>
+					<SimpleData name="Gestor_da_Empresa">CAIO MENESES STABEL</SimpleData>
+					<SimpleData name="Endereço">CEP 07161-180 - Brazil</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>-46.43855439999999,-23.3998734,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

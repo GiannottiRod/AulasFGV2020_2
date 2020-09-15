@@ -5,6 +5,9 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 # planilha CAMB 
+library(readxl)
+CAMBRIDGE <- read_xlsx("DADOSPAX.xlsx", sheet = "CAMBRIDGE")
+CAMBRIDGEcomMV <- read_xlsx("DADOSPAX.xlsx", sheet = "CAMBRIDGEcomMV")
 camb.completo=CAMBRIDGE[,-1]      # todas as colunas completas para comparação futura
 sum(is.na(camb.completo))
 camb.miss=CAMBRIDGEcomMV[,-1]     # eliminei as vars complete.cases()

@@ -1,0 +1,2053 @@
+/3.2
+(ODB.1
+	Dependencies:	"$AVEXT/kml2shp.avx\n$AVEXT/kml2shpv2_1.avx\n"
+	FirstRootClassName:	"Project"
+	Roots:	2
+	Version:	31
+)
+
+(Project.2
+	Name:	"projeto2.apr"
+	CreationDate:	"September 13, 2020 10:51:12 PM"
+	GUIName:	"Project"
+	Win:	3
+	CSMgr:	4
+	DocExts:	5
+	VisGUIWidth:	70
+	Doc:	6
+	Doc:	139
+	Doc:	160
+	Doc:	170
+	Doc:	183
+	Doc:	210
+	Doc:	221
+	Doc:	231
+	Doc:	242
+	Doc:	71
+	Buttons:	252
+	Buttons:	253
+	Buttons:	254
+	Dependencies:	255
+	Dependencies:	256
+	Scripts:	257
+	Prefs:	258
+	WorkDir:	1093
+	WinX:	-8
+	WinY:	-7
+	WinW:	1936
+	WinH:	1095
+	SerialNumber:	"798501101431"
+	SelColor:	1094
+	GUINames:	1095
+	GUINames:	1096
+	GUINames:	1097
+	GUINames:	1098
+	GUINames:	1099
+	GUINames:	1100
+	GUINames:	1101
+	TocWidthScale:	1.00000000000000
+)
+
+(DocWin.3
+	Owner:	2
+	Open:	1
+	X:	5
+	Y:	5
+	W:	246
+	H:	329
+)
+
+(CSMgr.4
+)
+
+(DocAct.5
+	Doc:	2
+)
+
+(Table.6
+	Name:	"Attributes of Grupo_empresas-pnt.shp"
+	CreationDate:	"September 13, 2020 10:52:30 PM"
+	GUIName:	"Table"
+	Win:	7
+	CSMgr:	8
+	DocExts:	159
+	VTab:	14
+)
+
+(DocWin.7
+	Owner:	6
+	X:	255
+	Y:	47
+	W:	1352
+	H:	914
+)
+
+(CSMgr.8
+	Client:	9
+)
+
+(CSClient.9
+	Client:	10
+	ReqName:	"RespondTable"
+)
+
+(FTheme.10
+	Name:	"Grupo_empresas-pnt.shp"
+	Source:	11
+	Flags:	0x07
+	Legend:	51
+	Threshold:	70
+	View:	71
+	GSet:	157
+	LegEditScript:	"View.EditLegend"
+	TxPos:	158
+	LabelField:	17
+	Table:	6
+	SnapTolCursor:	1
+)
+
+(ShpSrc.11
+	Name:	12
+	FTab:	14
+)
+
+(SrcName.12
+	FileName:	13
+	Name:	"grupo_empresas-pnt.shp"
+	SubName:	"Point"
+	OwnerClass:	"ShpSrc"
+)
+
+(FN.13
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/earth/grupo_empresas-pnt.shp"
+)
+
+(FTab.14
+	Name:	"grupo_empresas-pnt.dbf"
+	Joins:	15
+	Joins:	27
+	BTab:	16
+	BTab:	20
+	BTab:	29
+	Fields:	28
+	Fields:	17
+	Fields:	18
+	Fields:	21
+	Fields:	22
+	Fields:	23
+	Fields:	24
+	Fields:	25
+	Fields:	30
+	Fields:	31
+	Fields:	32
+	Fields:	33
+	Fields:	34
+	Fields:	35
+	Fields:	36
+	Fields:	37
+	Fields:	38
+	Fields:	39
+	Fields:	40
+	Fields:	41
+	Fields:	42
+	SelBits:	50
+	FSrc:	11
+)
+
+(Join.15
+	FromBtab:	16
+	FromField:	18
+	ToBtab:	20
+	ToField:	21
+)
+
+(dBASE.16
+	Name:	"grupo_empresas-pnt.dbf"
+	Fields:	17
+	Fields:	18
+	FileName:	19
+)
+
+(Field.17
+	Name:	"Name"
+	Btab:	16
+	Alias:	"Name"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.18
+	Name:	"Id_Empre"
+	Btab:	16
+	Alias:	"Id_Empre"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	50
+)
+
+(FN.19
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/earth/grupo_empresas-pnt.dbf"
+)
+
+(DTxt.20
+	Name:	"grupo_empresas.txt"
+	Fields:	21
+	Fields:	22
+	Fields:	23
+	Fields:	24
+	Fields:	25
+	FileName:	26
+	Delim:	9
+	FFirst:	1
+)
+
+(Field.21
+	Name:	"Id empresa"
+	Btab:	20
+	Alias:	"Id empresa"
+	Type:	9
+	Pixels:	57
+)
+
+(Field.22
+	Name:	"Cep"
+	Btab:	20
+	Alias:	"Cep"
+	Visible:	1
+	Type:	4
+	Order:	1
+	Pixels:	59
+)
+
+(Field.23
+	Name:	"Faturamento 2019 (r$)"
+	Btab:	20
+	Alias:	"Faturamento 2019 (r$)"
+	Visible:	1
+	Type:	9
+	Order:	2
+	Pixels:	109
+)
+
+(Field.24
+	Name:	"Gestor da empresa"
+	Btab:	20
+	Alias:	"Gestor da empresa"
+	Visible:	1
+	Type:	4
+	Order:	3
+	Pixels:	150
+)
+
+(Field.25
+	Name:	"Endereço"
+	Btab:	20
+	Alias:	"Endereço"
+	Visible:	1
+	Type:	4
+	Order:	4
+	Pixels:	137
+)
+
+(FN.26
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/base empresas/grupo_empresas.txt"
+)
+
+(SJoin.27
+	FromBtab:	16
+	FromField:	28
+	ToBtab:	29
+	ToField:	44
+	FromFTab:	14
+	ToFTab:	45
+)
+
+(Field.28
+	Name:	"Shape"
+	Alias:	"Shape"
+	Visible:	1
+	Type:	17
+	Order:	-1
+	Pixels:	41
+)
+
+(dBASE.29
+	Name:	"munic_brasil.dbf"
+	Fields:	30
+	Fields:	31
+	Fields:	32
+	Fields:	33
+	Fields:	34
+	Fields:	35
+	Fields:	36
+	Fields:	37
+	Fields:	38
+	Fields:	39
+	Fields:	40
+	Fields:	41
+	Fields:	42
+	FileName:	43
+)
+
+(Field.30
+	Name:	"Id"
+	Btab:	29
+	Alias:	"Id"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	65
+)
+
+(Field.31
+	Name:	"Area"
+	Btab:	29
+	Alias:	"Area"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.32
+	Name:	"Geocodigo"
+	Btab:	29
+	Alias:	"Geocodigo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.33
+	Name:	"Nome"
+	Btab:	29
+	Alias:	"Nome"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.34
+	Name:	"Nomecaps"
+	Btab:	29
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.35
+	Name:	"Uf"
+	Btab:	29
+	Alias:	"Uf"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	17
+)
+
+(Field.36
+	Name:	"Coduf"
+	Btab:	29
+	Alias:	"Coduf"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	35
+)
+
+(Field.37
+	Name:	"Regiao"
+	Btab:	29
+	Alias:	"Regiao"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	125
+)
+
+(Field.38
+	Name:	"Mesorregia"
+	Btab:	29
+	Alias:	"Mesorregia"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.39
+	Name:	"Microrregi"
+	Btab:	29
+	Alias:	"Microrregi"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.40
+	Name:	"Rm"
+	Btab:	29
+	Alias:	"Rm"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.41
+	Name:	"Pop2004"
+	Btab:	29
+	Alias:	"Pop2004"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	77
+)
+
+(Field.42
+	Name:	"Densdemo"
+	Btab:	29
+	Alias:	"Densdemo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(FN.43
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/munic_brasil/munic_brasil.dbf"
+)
+
+(Field.44
+	Name:	"Shape"
+	Alias:	"Shape"
+	Type:	19
+	Order:	-1
+	Pixels:	53
+)
+
+(FTab.45
+	Name:	"munic_brasil.dbf"
+	BTab:	29
+	Fields:	44
+	Fields:	30
+	Fields:	31
+	Fields:	32
+	Fields:	33
+	Fields:	34
+	Fields:	35
+	Fields:	36
+	Fields:	37
+	Fields:	38
+	Fields:	39
+	Fields:	40
+	Fields:	41
+	Fields:	42
+	SelBits:	46
+	FSrc:	47
+)
+
+(Bitmap.46
+	NumBits:	5560
+
+)
+
+(ShpSrc.47
+	Name:	48
+	FTab:	45
+)
+
+(SrcName.48
+	FileName:	49
+	Name:	"munic_brasil.shp"
+	SubName:	"Polygon"
+	OwnerClass:	"ShpSrc"
+)
+
+(FN.49
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/munic_brasil/munic_brasil.shp"
+)
+
+(Bitmap.50
+	NumBits:	62
+	Bits:	00000000 00000000 
+)
+
+(Legend.51
+	LegType:	0x01
+	ClassType:	0x03
+	Symbols:	52
+	Class:	60
+	StdDevs:	1.00000000000000
+	NullSym:	61
+	NullValues:	68
+	StatValues:	69
+	Precision:	-3
+)
+
+(SymList.52
+	Child:	53
+)
+
+(BMkSym.53
+	Color:	54
+	BgColor:	55
+	Font:	56
+	Size:	14.00000000000000
+	Pattern:	120
+	Angle:	360.00000000000000
+)
+
+(TClr.54
+	Red:	0xffff
+)
+
+(TClr.55
+	Name:	"Transparent"
+)
+
+(NFont.56
+	Family:	57
+	Name:	58
+	Style:	59
+	Weight:	1
+	Wideness:	1
+)
+
+(AVStr.57
+	S:	"@MS PGothic"
+)
+
+(AVStr.58
+	S:	"@MS PGothic"
+)
+
+(AVStr.59
+	S:	"Normal"
+)
+
+(LClass.60
+	IsText:	1
+	Precision:	-3
+)
+
+(BMkSym.61
+	Color:	62
+	BgColor:	63
+	Font:	64
+	Size:	8.00000000000000
+	Pattern:	35
+	Angle:	360.00000000000000
+)
+
+(TClr.62
+	Name:	"Transparent"
+)
+
+(TClr.63
+	Name:	"Transparent"
+)
+
+(NFont.64
+	Family:	65
+	Name:	66
+	Style:	67
+	Weight:	1
+	Wideness:	1
+)
+
+(AVStr.65
+	S:	"@MS PGothic"
+)
+
+(AVStr.66
+	S:	"@MS PGothic"
+)
+
+(AVStr.67
+	S:	"Normal"
+)
+
+(NameDict.68
+)
+
+(NameDict.69
+)
+
+(Thresh.70
+)
+
+(View.71
+	Name:	"View1"
+	CreationDate:	"September 13, 2020 10:51:17 PM"
+	GUIName:	"View"
+	Win:	72
+	CSMgr:	73
+	DocExts:	75
+	DocExts:	76
+	Graphics:	77
+	Theme:	84
+	Theme:	10
+	LastScale:	5754.14340994670780
+	Dpy:	78
+	TOCWidth:	194
+	CoordPrecision:	2
+)
+
+(DocWin.72
+	Owner:	71
+	X:	426
+	Y:	82
+	W:	787
+	H:	559
+)
+
+(CSMgr.73
+	Client:	74
+)
+
+(CSClient.74
+	Client:	75
+	ReqName:	"ClientNfy"
+)
+
+(PanMgr.75
+	Doc:	71
+)
+
+(DocAct.76
+	Doc:	71
+)
+
+(GList.77
+	Dpy:	78
+	FormatNumb:	83
+)
+
+(MapDpy.78
+	Left:	-46.73620983109234
+	Bottom:	-23.59555639284952
+	Top:	-23.58957465153306
+	Right:	-46.72840552796876
+	ReportUnits:	4
+	Units:	10
+	Scale:	79
+	FrameTop:	5.37500000000000
+	FrameRight:	5.93750000000000
+	PageDpy:	80
+	FitToPage:	1
+	MouseLoc:	82
+)
+
+(Numb.79
+	N:	760.79822964102289
+)
+
+(PageDpy.80
+	Top:	5.37500000000000
+	Right:	5.93750000000000
+	ReportUnits:	1
+	Units:	1
+	Scale:	81
+	ZoomRight:	5.93750000000000
+	ZoomTop:	5.37500000000000
+	GridSpacingX:	0.25000000000000
+	GridSpacingY:	0.25000000000000
+)
+
+(Numb.81
+	N:	0.16842105263158
+)
+
+(PointD.82
+	x:	-46.73006223091254
+	y:	-23.58903304814588
+)
+
+(Numb.83
+)
+
+(FTheme.84
+	Name:	"Munic_brasil.shp"
+	Source:	85
+	Flags:	0x06
+	Legend:	112
+	Threshold:	136
+	View:	71
+	GSet:	137
+	LegEditScript:	"View.EditLegend"
+	TxPos:	138
+	LabelField:	94
+	Table:	139
+	AttrRules:	144
+	AttrRules:	145
+	AttrRules:	146
+	AttrRules:	147
+	AttrRules:	148
+	AttrRules:	149
+	AttrRules:	150
+	AttrRules:	151
+	AttrRules:	152
+	AttrRules:	153
+	AttrRules:	154
+	AttrRules:	155
+	AttrRules:	156
+	SnapTolCursor:	1
+)
+
+(ShpSrc.85
+	Name:	86
+	FTab:	88
+)
+
+(SrcName.86
+	FileName:	87
+	Name:	"munic_brasil.shp"
+	SubName:	"Polygon"
+	OwnerClass:	"ShpSrc"
+)
+
+(FN.87
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/munic_brasil/munic_brasil.shp"
+)
+
+(FTab.88
+	Name:	"munic_brasil.dbf"
+	Joins:	89
+	BTab:	90
+	BTab:	105
+	Fields:	110
+	Fields:	91
+	Fields:	92
+	Fields:	93
+	Fields:	94
+	Fields:	95
+	Fields:	96
+	Fields:	97
+	Fields:	98
+	Fields:	99
+	Fields:	100
+	Fields:	101
+	Fields:	102
+	Fields:	103
+	Fields:	106
+	Fields:	107
+	Fields:	108
+	SelBits:	111
+	FSrc:	85
+)
+
+(Join.89
+	FromBtab:	90
+	FromField:	95
+	ToBtab:	105
+	ToField:	106
+)
+
+(dBASE.90
+	Name:	"munic_brasil.dbf"
+	Fields:	91
+	Fields:	92
+	Fields:	93
+	Fields:	94
+	Fields:	95
+	Fields:	96
+	Fields:	97
+	Fields:	98
+	Fields:	99
+	Fields:	100
+	Fields:	101
+	Fields:	102
+	Fields:	103
+	FileName:	104
+)
+
+(Field.91
+	Name:	"Id"
+	Btab:	90
+	Alias:	"Id"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	65
+)
+
+(Field.92
+	Name:	"Area"
+	Btab:	90
+	Alias:	"Area"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.93
+	Name:	"Geocodigo"
+	Btab:	90
+	Alias:	"Geocodigo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.94
+	Name:	"Nome"
+	Btab:	90
+	Alias:	"Nome"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.95
+	Name:	"Nomecaps"
+	Btab:	90
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.96
+	Name:	"Uf"
+	Btab:	90
+	Alias:	"Uf"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	17
+)
+
+(Field.97
+	Name:	"Coduf"
+	Btab:	90
+	Alias:	"Coduf"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	35
+)
+
+(Field.98
+	Name:	"Regiao"
+	Btab:	90
+	Alias:	"Regiao"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	125
+)
+
+(Field.99
+	Name:	"Mesorregia"
+	Btab:	90
+	Alias:	"Mesorregia"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.100
+	Name:	"Microrregi"
+	Btab:	90
+	Alias:	"Microrregi"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.101
+	Name:	"Rm"
+	Btab:	90
+	Alias:	"Rm"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.102
+	Name:	"Pop2004"
+	Btab:	90
+	Alias:	"Pop2004"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	77
+)
+
+(Field.103
+	Name:	"Densdemo"
+	Btab:	90
+	Alias:	"Densdemo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(FN.104
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/munic_brasil/munic_brasil.dbf"
+)
+
+(dBASE.105
+	Name:	"sum3.dbf"
+	Fields:	106
+	Fields:	107
+	Fields:	108
+	FileName:	109
+)
+
+(Field.106
+	Name:	"Nomecaps"
+	Btab:	105
+	Alias:	"Nomecaps"
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.107
+	Name:	"Count"
+	Btab:	105
+	Alias:	"Count"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.108
+	Name:	"Count_Id_E"
+	Btab:	105
+	Alias:	"Count_Id_Empre"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	50
+)
+
+(FN.109
+	Path:	"c:/users/giann/appdata/local/temp/sum3.dbf"
+)
+
+(Field.110
+	Name:	"Shape"
+	Alias:	"Shape"
+	Visible:	1
+	Type:	19
+	Order:	-1
+	Pixels:	53
+)
+
+(Bitmap.111
+	NumBits:	5560
+
+)
+
+(Legend.112
+	SymType:	0x02
+	LegType:	0x20
+	ClassType:	0x03
+	FieldNames:	113
+	Symbols:	114
+	Class:	127
+	StdDevs:	1.00000000000000
+	NullSym:	128
+	NullValues:	133
+	StatValues:	135
+	Precision:	-3
+)
+
+(AVStr.113
+	S:	"Count_Id_Empre"
+)
+
+(SymList.114
+	Child:	115
+)
+
+(ColSym.115
+	Color:	116
+	Outline:	1
+	OlColor:	117
+	OlWidth:	1.00000000000000
+	BgColor:	118
+	Values:	00000000 3ff00000 
+	Symbols:	119
+	MinVal:	1.00000000000000
+	MaxVal:	32.00000000000000
+	MinSize:	2.00000000000000
+	MaxSize:	36.00000000000000
+	BgSym:	123
+	ColWidth:	6.00000000000000
+)
+
+(TClr.116
+)
+
+(TClr.117
+)
+
+(TClr.118
+	Name:	"Transparent"
+)
+
+(BShSym.119
+	Color:	120
+	Outline:	1
+	OutlineColor:	121
+	OutlineWidth:	1.00000000000000
+	BgColor:	122
+)
+
+(TClr.120
+	Red:	0xffff
+)
+
+(TClr.121
+)
+
+(TClr.122
+	Red:	0xffff
+	Green:	0xffff
+	Blue:	0xffff
+)
+
+(BShSym.123
+	Color:	124
+	Outline:	1
+	OutlineColor:	125
+	OutlineWidth:	0.10000000000000
+	BgColor:	126
+)
+
+(TClr.124
+	Red:	0xd2d2
+	Green:	0xd2d2
+	Blue:	0xd2d2
+)
+
+(TClr.125
+)
+
+(TClr.126
+	Red:	0xffff
+	Green:	0xffff
+	Blue:	0xffff
+)
+
+(LClass.127
+	Label:	"nifty chart map"
+	MaxNum:	-1.00000000000000
+	Precision:	-3
+)
+
+(BShSym.128
+	Color:	129
+	Outline:	1
+	OutlineColor:	130
+	OutlineWidth:	1.00000000000000
+	BgColor:	131
+	Style:	0x03
+	Stipple:	132
+)
+
+(TClr.129
+	Red:	0xd2d2
+	Green:	0xd2d2
+	Blue:	0xd2d2
+)
+
+(TClr.130
+	Name:	"Transparent"
+)
+
+(TClr.131
+	Red:	0xffff
+	Green:	0xffff
+	Blue:	0xffff
+)
+
+(Stipple.132
+	Columns:	8
+	Rows:	8
+	Bits:	ffddff77 ffddff77 
+)
+
+(NameDict.133
+	Obj:	134
+)
+
+(Numb.134
+	InternalName:	"Count_Id_Empre"
+)
+
+(NameDict.135
+)
+
+(Thresh.136
+)
+
+(GSet.137
+)
+
+(TxPosPly.138
+	HAlign:	3
+	VAlign:	3
+)
+
+(Table.139
+	Name:	"Attributes of Munic_brasil.shp"
+	CreationDate:	"September 13, 2020 10:59:11 PM"
+	GUIName:	"Table"
+	Win:	140
+	CSMgr:	141
+	DocExts:	143
+	VTab:	88
+)
+
+(DocWin.140
+	Owner:	139
+	X:	-8
+	Y:	-8
+	W:	1938
+	H:	986
+)
+
+(CSMgr.141
+	Client:	142
+)
+
+(CSClient.142
+	Client:	84
+	ReqName:	"RespondTable"
+)
+
+(DocAct.143
+	Doc:	139
+)
+
+(AttrSingle.144
+	FTab:	88
+	Field:	91
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.145
+	FTab:	88
+	Field:	92
+	UnionRule:	5
+	SplitRule:	3
+)
+
+(AttrSingle.146
+	FTab:	88
+	Field:	93
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.147
+	FTab:	88
+	Field:	94
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.148
+	FTab:	88
+	Field:	95
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.149
+	FTab:	88
+	Field:	96
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.150
+	FTab:	88
+	Field:	97
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.151
+	FTab:	88
+	Field:	98
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.152
+	FTab:	88
+	Field:	99
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.153
+	FTab:	88
+	Field:	100
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.154
+	FTab:	88
+	Field:	101
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.155
+	FTab:	88
+	Field:	102
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.156
+	FTab:	88
+	Field:	103
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(GSet.157
+)
+
+(TxPosPt.158
+	HAlign:	4
+	VAlign:	3
+)
+
+(DocAct.159
+	Doc:	6
+)
+
+(Table.160
+	Name:	"grupo_empresas-pnt.dbf"
+	CreationDate:	"September 13, 2020 10:56:30 PM"
+	GUIName:	"Table"
+	Win:	161
+	CSMgr:	162
+	DocExts:	163
+	VTab:	164
+)
+
+(DocWin.161
+	Owner:	160
+	X:	65
+	Y:	65
+	W:	373
+	H:	260
+)
+
+(CSMgr.162
+)
+
+(DocAct.163
+	Doc:	160
+)
+
+(VTab.164
+	Name:	"grupo_empresas-pnt.dbf"
+	BTab:	165
+	Fields:	166
+	Fields:	167
+	SelBits:	169
+)
+
+(dBASE.165
+	Name:	"grupo_empresas-pnt.dbf"
+	Fields:	166
+	Fields:	167
+	FileName:	168
+)
+
+(Field.166
+	Name:	"Name"
+	Btab:	165
+	Alias:	"Name"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.167
+	Name:	"Id_empre"
+	Btab:	165
+	Alias:	"Id_empre"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	49
+)
+
+(FN.168
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/earth/grupo_empresas-pnt.dbf"
+)
+
+(Bitmap.169
+	NumBits:	62
+
+)
+
+(Table.170
+	Name:	"grupo_empresas.txt"
+	CreationDate:	"September 13, 2020 10:56:48 PM"
+	GUIName:	"Table"
+	Win:	171
+	CSMgr:	172
+	DocExts:	173
+	VTab:	174
+)
+
+(DocWin.171
+	Owner:	170
+	X:	920
+	Y:	148
+	W:	737
+	H:	579
+)
+
+(CSMgr.172
+)
+
+(DocAct.173
+	Doc:	170
+)
+
+(VTab.174
+	Name:	"grupo_empresas.txt"
+	BTab:	175
+	Fields:	176
+	Fields:	177
+	Fields:	178
+	Fields:	179
+	Fields:	180
+	SelBits:	182
+)
+
+(DTxt.175
+	Name:	"grupo_empresas.txt"
+	Fields:	176
+	Fields:	177
+	Fields:	178
+	Fields:	179
+	Fields:	180
+	FileName:	181
+	Delim:	9
+	FFirst:	1
+)
+
+(Field.176
+	Name:	"Id empresa"
+	Btab:	175
+	Alias:	"Id empresa"
+	Visible:	1
+	Type:	9
+	Pixels:	57
+)
+
+(Field.177
+	Name:	"Cep"
+	Btab:	175
+	Alias:	"Cep"
+	Visible:	1
+	Type:	4
+	Order:	1
+	Pixels:	59
+)
+
+(Field.178
+	Name:	"Faturamento 2019 (r$)"
+	Btab:	175
+	Alias:	"Faturamento 2019 (r$)"
+	Visible:	1
+	Type:	9
+	Order:	2
+	Pixels:	109
+)
+
+(Field.179
+	Name:	"Gestor da empresa"
+	Btab:	175
+	Alias:	"Gestor da empresa"
+	Visible:	1
+	Type:	4
+	Order:	3
+	Pixels:	150
+)
+
+(Field.180
+	Name:	"Endereço"
+	Btab:	175
+	Alias:	"Endereço"
+	Visible:	1
+	Type:	4
+	Order:	4
+	Pixels:	137
+)
+
+(FN.181
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/base empresas/grupo_empresas.txt"
+)
+
+(Bitmap.182
+	NumBits:	67
+
+)
+
+(Table.183
+	Name:	"sum2.dbf"
+	CreationDate:	"September 13, 2020 11:35:23 PM"
+	GUIName:	"Table"
+	Win:	184
+	CSMgr:	185
+	DocExts:	186
+	VTab:	187
+)
+
+(DocWin.184
+	Owner:	183
+	X:	20
+	Y:	20
+	W:	1064
+	H:	711
+)
+
+(CSMgr.185
+)
+
+(DocAct.186
+	Doc:	183
+)
+
+(VTab.187
+	Name:	"sum2.dbf"
+	Joins:	188
+	BTab:	189
+	BTab:	194
+	Fields:	190
+	Fields:	191
+	Fields:	192
+	Fields:	195
+	Fields:	196
+	Fields:	197
+	Fields:	198
+	Fields:	199
+	Fields:	200
+	Fields:	201
+	Fields:	202
+	Fields:	203
+	Fields:	204
+	Fields:	205
+	Fields:	206
+	Fields:	207
+	SelBits:	209
+)
+
+(Join.188
+	FromBtab:	189
+	FromField:	190
+	ToBtab:	194
+	ToField:	199
+)
+
+(dBASE.189
+	Name:	"sum2.dbf"
+	Fields:	190
+	Fields:	191
+	Fields:	192
+	FileName:	193
+)
+
+(Field.190
+	Name:	"Nomecaps"
+	Btab:	189
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.191
+	Name:	"Count"
+	Btab:	189
+	Alias:	"Count"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.192
+	Name:	"Count_Id_E"
+	Btab:	189
+	Alias:	"Count_Id_Empre"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	50
+)
+
+(FN.193
+	Path:	"c:/users/giann/appdata/local/temp/sum2.dbf"
+)
+
+(dBASE.194
+	Name:	"munic_brasil.dbf"
+	Fields:	195
+	Fields:	196
+	Fields:	197
+	Fields:	198
+	Fields:	199
+	Fields:	200
+	Fields:	201
+	Fields:	202
+	Fields:	203
+	Fields:	204
+	Fields:	205
+	Fields:	206
+	Fields:	207
+	FileName:	208
+)
+
+(Field.195
+	Name:	"Id"
+	Btab:	194
+	Alias:	"Id"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	65
+)
+
+(Field.196
+	Name:	"Area"
+	Btab:	194
+	Alias:	"Area"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.197
+	Name:	"Geocodigo"
+	Btab:	194
+	Alias:	"Geocodigo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.198
+	Name:	"Nome"
+	Btab:	194
+	Alias:	"Nome"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.199
+	Name:	"Nomecaps"
+	Btab:	194
+	Alias:	"Nomecaps"
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.200
+	Name:	"Uf"
+	Btab:	194
+	Alias:	"Uf"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	17
+)
+
+(Field.201
+	Name:	"Coduf"
+	Btab:	194
+	Alias:	"Coduf"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	35
+)
+
+(Field.202
+	Name:	"Regiao"
+	Btab:	194
+	Alias:	"Regiao"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	125
+)
+
+(Field.203
+	Name:	"Mesorregia"
+	Btab:	194
+	Alias:	"Mesorregia"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.204
+	Name:	"Microrregi"
+	Btab:	194
+	Alias:	"Microrregi"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.205
+	Name:	"Rm"
+	Btab:	194
+	Alias:	"Rm"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.206
+	Name:	"Pop2004"
+	Btab:	194
+	Alias:	"Pop2004"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	77
+)
+
+(Field.207
+	Name:	"Densdemo"
+	Btab:	194
+	Alias:	"Densdemo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(FN.208
+	Path:	"d:/documents/github/aulasfgv2020_2/geomarketing/exercicios/aulas 2 e 3/munic_brasil/munic_brasil.dbf"
+)
+
+(Bitmap.209
+	NumBits:	17
+
+)
+
+(Table.210
+	Name:	"sum3.dbf"
+	CreationDate:	"September 13, 2020 11:37:07 PM"
+	GUIName:	"Table"
+	Win:	211
+	CSMgr:	212
+	DocExts:	213
+	VTab:	214
+)
+
+(DocWin.211
+	Owner:	210
+	X:	35
+	Y:	35
+	W:	373
+	H:	260
+)
+
+(CSMgr.212
+)
+
+(DocAct.213
+	Doc:	210
+)
+
+(VTab.214
+	Name:	"sum3.dbf"
+	BTab:	215
+	Fields:	216
+	Fields:	217
+	Fields:	218
+	SelBits:	220
+)
+
+(dBASE.215
+	Name:	"sum3.dbf"
+	Fields:	216
+	Fields:	217
+	Fields:	218
+	FileName:	219
+)
+
+(Field.216
+	Name:	"Nomecaps"
+	Btab:	215
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.217
+	Name:	"Count"
+	Btab:	215
+	Alias:	"Count"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.218
+	Name:	"Count_Id_E"
+	Btab:	215
+	Alias:	"Count_Id_Empre"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	50
+)
+
+(FN.219
+	Path:	"c:/users/giann/appdata/local/temp/sum3.dbf"
+)
+
+(Bitmap.220
+	NumBits:	17
+
+)
+
+(Table.221
+	Name:	"sum4.dbf"
+	CreationDate:	"September 14, 2020 12:06:40 AM"
+	GUIName:	"Table"
+	Win:	222
+	CSMgr:	223
+	DocExts:	224
+	VTab:	225
+)
+
+(DocWin.222
+	Owner:	221
+	X:	50
+	Y:	50
+	W:	759
+	H:	488
+)
+
+(CSMgr.223
+)
+
+(DocAct.224
+	Doc:	221
+)
+
+(VTab.225
+	Name:	"sum4.dbf"
+	BTab:	226
+	Fields:	227
+	Fields:	228
+	SelBits:	230
+)
+
+(dBASE.226
+	Name:	"sum4.dbf"
+	Fields:	227
+	Fields:	228
+	FileName:	229
+)
+
+(Field.227
+	Name:	"Nomecaps"
+	Btab:	226
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.228
+	Name:	"Count"
+	Btab:	226
+	Alias:	"Count"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(FN.229
+	Path:	"c:/users/giann/appdata/local/temp/sum4.dbf"
+)
+
+(Bitmap.230
+	NumBits:	17
+
+)
+
+(Table.231
+	Name:	"sum5.dbf"
+	CreationDate:	"September 14, 2020 12:08:16 AM"
+	GUIName:	"Table"
+	Win:	232
+	CSMgr:	233
+	DocExts:	234
+	VTab:	235
+)
+
+(DocWin.232
+	Owner:	231
+	X:	65
+	Y:	65
+	W:	373
+	H:	260
+)
+
+(CSMgr.233
+)
+
+(DocAct.234
+	Doc:	231
+)
+
+(VTab.235
+	Name:	"sum5.dbf"
+	BTab:	236
+	Fields:	237
+	Fields:	238
+	Fields:	239
+	SelBits:	241
+)
+
+(dBASE.236
+	Name:	"sum5.dbf"
+	Fields:	237
+	Fields:	238
+	Fields:	239
+	FileName:	240
+)
+
+(Field.237
+	Name:	"Nomecaps"
+	Btab:	236
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.238
+	Name:	"Count"
+	Btab:	236
+	Alias:	"Count"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.239
+	Name:	"Sum_Fatura"
+	Btab:	236
+	Alias:	"Sum_Faturamento 2019 (r$)"
+	Visible:	1
+	Type:	9
+	Order:	2
+	Pixels:	109
+)
+
+(FN.240
+	Path:	"c:/users/giann/appdata/local/temp/sum5.dbf"
+)
+
+(Bitmap.241
+	NumBits:	17
+
+)
+
+(Table.242
+	Name:	"sum6.dbf"
+	CreationDate:	"September 14, 2020 12:08:42 AM"
+	GUIName:	"Table"
+	Win:	243
+	CSMgr:	244
+	DocExts:	245
+	VTab:	246
+)
+
+(DocWin.243
+	Owner:	242
+	X:	80
+	Y:	80
+	W:	633
+	H:	414
+)
+
+(CSMgr.244
+)
+
+(DocAct.245
+	Doc:	242
+)
+
+(VTab.246
+	Name:	"sum6.dbf"
+	BTab:	247
+	Fields:	248
+	Fields:	249
+	SelBits:	251
+)
+
+(dBASE.247
+	Name:	"sum6.dbf"
+	Fields:	248
+	Fields:	249
+	FileName:	250
+)
+
+(Field.248
+	Name:	"Nomecaps"
+	Btab:	247
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.249
+	Name:	"Sum_Fatura"
+	Btab:	247
+	Alias:	"Sum_Faturamento 2019 (r$)"
+	Visible:	1
+	Type:	9
+	Order:	2
+	Pixels:	109
+)
+
+(FN.250
+	Path:	"c:/users/giann/appdata/local/temp/sum6.dbf"
+)
+
+(Bitmap.251
+	NumBits:	17
+
+)
+
+(LButn.252
+	HelpTopic:	"New_button"
+	Update:	"Doc.NewUpdate"
+	Label:	"&New"
+	Click:	"Table.New"
+)
+
+(LButn.253
+	HelpTopic:	"Open_button"
+	Update:	"Doc.OpenUpdate"
+	Label:	"&Open"
+	Click:	"Doc.Open"
+)
+
+(LButn.254
+	HelpTopic:	"Add_button"
+	Update:	"Table.ActionUpdate"
+	Label:	"&Add"
+	Click:	"Table.Action"
+)
+
+(FN.255
+	Path:	"$AVEXT/kml2shp.avx"
+)
+
+(FN.256
+	Path:	"$AVEXT/kml2shpv2_1.avx"
+)
+
+(NameDict.257
+)
+
+(NameDict.258
+	Obj:	259
+)
+
+(AVDict.259
+	InternalName:	"Table of Contents Defaults Dialog"
+)
+
+(FN.1093
+	Path:	"$HOME"
+)
+
+(TClr.1094
+	Red:	0xffff
+	Green:	0xffff
+)
+
+(AVStr.1095
+	S:	"View"
+)
+
+(AVStr.1096
+	S:	"Table"
+)
+
+(AVStr.1097
+	S:	"Chart"
+)
+
+(AVStr.1098
+	S:	"Layout"
+)
+
+(AVStr.1099
+	S:	"Script"
+)
+
+(AVStr.1100
+	S:	"Project"
+)
+
+(AVStr.1101
+	S:	"Appl"
+)
+

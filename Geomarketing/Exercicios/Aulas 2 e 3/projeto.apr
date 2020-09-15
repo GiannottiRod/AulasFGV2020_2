@@ -1,0 +1,1592 @@
+/3.2
+(ODB.1
+	Dependencies:	"$AVEXT/kml2shp.avx\n$AVEXT/kml2shpv2_1.avx\n"
+	FirstRootClassName:	"Project"
+	Roots:	2
+	Version:	31
+)
+
+(Project.2
+	Name:	"projeto.apr"
+	CreationDate:	"domingo, 13 de setembro de 2020 20:11:22"
+	GUIName:	"Project"
+	Win:	3
+	CSMgr:	4
+	DocExts:	5
+	VisGUIWidth:	70
+	Doc:	6
+	Doc:	122
+	Doc:	177
+	Doc:	185
+	Doc:	71
+	ActiveDoc:	6
+	Buttons:	198
+	Buttons:	199
+	Buttons:	200
+	Dependencies:	201
+	Dependencies:	202
+	Scripts:	203
+	Prefs:	204
+	WorkDir:	1041
+	WinX:	-8
+	WinY:	-7
+	WinW:	1936
+	WinH:	1055
+	SerialNumber:	"798501101431"
+	SelColor:	1042
+	GUINames:	1043
+	GUINames:	1044
+	GUINames:	1045
+	GUINames:	1046
+	GUINames:	1047
+	GUINames:	1048
+	GUINames:	1049
+	TocWidthScale:	1.00000000000000
+)
+
+(DocWin.3
+	Owner:	2
+	Open:	1
+	X:	31
+	Y:	20
+	W:	246
+	H:	329
+)
+
+(CSMgr.4
+)
+
+(DocAct.5
+	Doc:	2
+)
+
+(Table.6
+	Name:	"Attributes of Grupo_empresas-pnt.shp"
+	CreationDate:	"domingo, 13 de setembro de 2020 20:13:11"
+	GUIName:	"Table"
+	Win:	7
+	CSMgr:	8
+	DocExts:	184
+	VTab:	14
+)
+
+(DocWin.7
+	Owner:	6
+	Open:	1
+	X:	1031
+	Y:	134
+	W:	841
+	H:	315
+)
+
+(CSMgr.8
+	Client:	9
+)
+
+(CSClient.9
+	Client:	10
+	ReqName:	"RespondTable"
+)
+
+(FTheme.10
+	Name:	"Grupo_empresas-pnt.shp"
+	Source:	11
+	Flags:	0x06
+	Legend:	51
+	Threshold:	70
+	View:	71
+	GSet:	182
+	LegEditScript:	"View.EditLegend"
+	TxPos:	183
+	LabelField:	17
+	Table:	6
+	SnapTolCursor:	1
+)
+
+(ShpSrc.11
+	Name:	12
+	FTab:	14
+)
+
+(SrcName.12
+	FileName:	13
+	Name:	"grupo_empresas-pnt.shp"
+	SubName:	"Point"
+	OwnerClass:	"ShpSrc"
+)
+
+(FN.13
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/earth/grupo_empresas-pnt.shp"
+)
+
+(FTab.14
+	Name:	"grupo_empresas-pnt.dbf"
+	Joins:	15
+	Joins:	27
+	BTab:	16
+	BTab:	20
+	BTab:	29
+	Fields:	28
+	Fields:	17
+	Fields:	21
+	Fields:	22
+	Fields:	23
+	Fields:	24
+	Fields:	25
+	Fields:	30
+	Fields:	31
+	Fields:	32
+	Fields:	33
+	Fields:	34
+	Fields:	35
+	Fields:	36
+	Fields:	37
+	Fields:	38
+	Fields:	39
+	Fields:	40
+	Fields:	41
+	Fields:	42
+	SelBits:	50
+	FSrc:	11
+)
+
+(Join.15
+	FromBtab:	16
+	FromField:	19
+	ToBtab:	20
+	ToField:	21
+)
+
+(dBASE.16
+	Name:	"grupo_empresas-pnt.dbf"
+	Fields:	17
+	FileName:	18
+)
+
+(Field.17
+	Name:	"Name"
+	Btab:	16
+	Alias:	"Name"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(FN.18
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/earth/grupo_empresas-pnt.dbf"
+)
+
+(Field.19
+	Name:	"ID_empr"
+	Btab:	16
+	Alias:	"ID_empr"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	45
+)
+
+(DTxt.20
+	Name:	"grupo_empresas.txt"
+	Fields:	21
+	Fields:	22
+	Fields:	23
+	Fields:	24
+	Fields:	25
+	FileName:	26
+	Delim:	9
+	FFirst:	1
+)
+
+(Field.21
+	Name:	"Id empresa"
+	Btab:	20
+	Alias:	"Id empresa"
+	Type:	9
+	Pixels:	57
+)
+
+(Field.22
+	Name:	"Cep"
+	Btab:	20
+	Alias:	"Cep"
+	Visible:	1
+	Type:	4
+	Order:	1
+	Pixels:	59
+)
+
+(Field.23
+	Name:	"Faturamento 2019 (r$)"
+	Btab:	20
+	Alias:	"Faturamento 2019 (r$)"
+	Visible:	1
+	Type:	9
+	Order:	2
+	Pixels:	109
+)
+
+(Field.24
+	Name:	"Gestor da empresa"
+	Btab:	20
+	Alias:	"Gestor da empresa"
+	Visible:	1
+	Type:	4
+	Order:	3
+	Pixels:	150
+)
+
+(Field.25
+	Name:	"Endereço"
+	Btab:	20
+	Alias:	"Endereço"
+	Visible:	1
+	Type:	4
+	Order:	4
+	Pixels:	137
+)
+
+(FN.26
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/base empresas/grupo_empresas.txt"
+)
+
+(SJoin.27
+	FromBtab:	16
+	FromField:	28
+	ToBtab:	29
+	ToField:	44
+	FromFTab:	14
+	ToFTab:	45
+)
+
+(Field.28
+	Name:	"Shape"
+	Alias:	"Shape"
+	Visible:	1
+	Type:	17
+	Order:	-1
+	Pixels:	41
+)
+
+(dBASE.29
+	Name:	"munic_brasil.dbf"
+	Fields:	30
+	Fields:	31
+	Fields:	32
+	Fields:	33
+	Fields:	34
+	Fields:	35
+	Fields:	36
+	Fields:	37
+	Fields:	38
+	Fields:	39
+	Fields:	40
+	Fields:	41
+	Fields:	42
+	FileName:	43
+)
+
+(Field.30
+	Name:	"Id"
+	Btab:	29
+	Alias:	"Id"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	65
+)
+
+(Field.31
+	Name:	"Area"
+	Btab:	29
+	Alias:	"Area"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.32
+	Name:	"Geocodigo"
+	Btab:	29
+	Alias:	"Geocodigo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.33
+	Name:	"Nome"
+	Btab:	29
+	Alias:	"Nome"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.34
+	Name:	"Nomecaps"
+	Btab:	29
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.35
+	Name:	"Uf"
+	Btab:	29
+	Alias:	"Uf"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	17
+)
+
+(Field.36
+	Name:	"Coduf"
+	Btab:	29
+	Alias:	"Coduf"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	35
+)
+
+(Field.37
+	Name:	"Regiao"
+	Btab:	29
+	Alias:	"Regiao"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	125
+)
+
+(Field.38
+	Name:	"Mesorregia"
+	Btab:	29
+	Alias:	"Mesorregia"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.39
+	Name:	"Microrregi"
+	Btab:	29
+	Alias:	"Microrregi"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.40
+	Name:	"Rm"
+	Btab:	29
+	Alias:	"Rm"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.41
+	Name:	"Pop2004"
+	Btab:	29
+	Alias:	"Pop2004"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	77
+)
+
+(Field.42
+	Name:	"Densdemo"
+	Btab:	29
+	Alias:	"Densdemo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(FN.43
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/munic_brasil/munic_brasil.dbf"
+)
+
+(Field.44
+	Name:	"Shape"
+	Alias:	"Shape"
+	Type:	19
+	Order:	-1
+	Pixels:	53
+)
+
+(FTab.45
+	Name:	"munic_brasil.dbf"
+	BTab:	29
+	Fields:	44
+	Fields:	30
+	Fields:	31
+	Fields:	32
+	Fields:	33
+	Fields:	34
+	Fields:	35
+	Fields:	36
+	Fields:	37
+	Fields:	38
+	Fields:	39
+	Fields:	40
+	Fields:	41
+	Fields:	42
+	SelBits:	46
+	FSrc:	47
+)
+
+(Bitmap.46
+	NumBits:	5560
+
+)
+
+(ShpSrc.47
+	Name:	48
+	FTab:	45
+)
+
+(SrcName.48
+	FileName:	49
+	Name:	"munic_brasil.shp"
+	SubName:	"Polygon"
+	OwnerClass:	"ShpSrc"
+)
+
+(FN.49
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/munic_brasil/munic_brasil.shp"
+)
+
+(Bitmap.50
+	NumBits:	62
+	Bits:	00000000 00000000 
+)
+
+(Legend.51
+	LegType:	0x01
+	ClassType:	0x03
+	Symbols:	52
+	Class:	60
+	StdDevs:	1.00000000000000
+	NullSym:	61
+	NullValues:	68
+	StatValues:	69
+	Precision:	-3
+)
+
+(SymList.52
+	Child:	53
+)
+
+(BMkSym.53
+	Color:	54
+	BgColor:	55
+	Font:	56
+	Size:	20.00000000000000
+	Pattern:	120
+	Angle:	360.00000000000000
+)
+
+(TClr.54
+	Red:	0x6400
+	Green:	0x63
+	Blue:	0x6025
+)
+
+(TClr.55
+	Name:	"Transparent"
+)
+
+(NFont.56
+	Family:	57
+	Name:	58
+	Style:	59
+	Weight:	1
+	Wideness:	1
+)
+
+(AVStr.57
+	S:	"@Dotum"
+)
+
+(AVStr.58
+	S:	"@Dotum"
+)
+
+(AVStr.59
+	S:	"Normal"
+)
+
+(LClass.60
+	IsText:	1
+	Precision:	-3
+)
+
+(BMkSym.61
+	Color:	62
+	BgColor:	63
+	Font:	64
+	Size:	8.00000000000000
+	Pattern:	35
+	Angle:	360.00000000000000
+)
+
+(TClr.62
+	Name:	"Transparent"
+)
+
+(TClr.63
+	Name:	"Transparent"
+)
+
+(NFont.64
+	Family:	65
+	Name:	66
+	Style:	67
+	Weight:	1
+	Wideness:	1
+)
+
+(AVStr.65
+	S:	"@Dotum"
+)
+
+(AVStr.66
+	S:	"@Dotum"
+)
+
+(AVStr.67
+	S:	"Normal"
+)
+
+(NameDict.68
+)
+
+(NameDict.69
+)
+
+(Thresh.70
+)
+
+(View.71
+	Name:	"View1"
+	CreationDate:	"domingo, 13 de setembro de 2020 20:12:01"
+	GUIName:	"View"
+	Win:	72
+	CSMgr:	73
+	DocExts:	75
+	DocExts:	76
+	Graphics:	77
+	Theme:	84
+	Theme:	140
+	Theme:	10
+	LastScale:	8799803.06448777770000
+	Dpy:	78
+	TOCWidth:	150
+	CoordPrecision:	2
+)
+
+(DocWin.72
+	Owner:	71
+	Open:	1
+	X:	299
+	Y:	46
+	W:	972
+	H:	679
+)
+
+(CSMgr.73
+	Client:	74
+)
+
+(CSClient.74
+	Client:	75
+	ReqName:	"ClientNfy"
+)
+
+(PanMgr.75
+	Doc:	71
+)
+
+(DocAct.76
+	Doc:	71
+)
+
+(GList.77
+	Dpy:	78
+	FormatNumb:	83
+)
+
+(MapDpy.78
+	Left:	-54.64235486441379
+	Bottom:	-30.46406311080347
+	Top:	-17.17352073580342
+	Right:	-37.91226305191381
+	ReportUnits:	4
+	Units:	10
+	Scale:	79
+	FrameTop:	6.62500000000000
+	FrameRight:	8.32291666666667
+	PageDpy:	80
+	FitToPage:	1
+	MouseLoc:	82
+)
+
+(Numb.79
+	N:	0.49748182854849
+)
+
+(PageDpy.80
+	Top:	6.62500000000000
+	Right:	8.32291666666667
+	ReportUnits:	1
+	Units:	1
+	Scale:	81
+	ZoomRight:	8.32291666666667
+	ZoomTop:	6.62500000000000
+	GridSpacingX:	0.25000000000000
+	GridSpacingY:	0.25000000000000
+)
+
+(Numb.81
+	N:	96.00000000000000
+)
+
+(PointD.82
+	x:	-44.25671589194822
+	y:	-20.92923914467391
+)
+
+(Numb.83
+)
+
+(FTheme.84
+	Name:	"Munic_brasil.shp"
+	Source:	85
+	Flags:	0x06
+	Legend:	106
+	Threshold:	119
+	View:	71
+	GSet:	120
+	LegEditScript:	"View.EditLegend"
+	TxPos:	121
+	LabelField:	93
+	Table:	122
+	AttrRules:	127
+	AttrRules:	128
+	AttrRules:	129
+	AttrRules:	130
+	AttrRules:	131
+	AttrRules:	132
+	AttrRules:	133
+	AttrRules:	134
+	AttrRules:	135
+	AttrRules:	136
+	AttrRules:	137
+	AttrRules:	138
+	AttrRules:	139
+	SnapTolCursor:	1
+)
+
+(ShpSrc.85
+	Name:	86
+	FTab:	88
+)
+
+(SrcName.86
+	FileName:	87
+	Name:	"munic_brasil.shp"
+	SubName:	"Polygon"
+	OwnerClass:	"ShpSrc"
+)
+
+(FN.87
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/munic_brasil/munic_brasil.shp"
+)
+
+(FTab.88
+	Name:	"munic_brasil.dbf"
+	BTab:	89
+	Fields:	104
+	Fields:	90
+	Fields:	91
+	Fields:	92
+	Fields:	93
+	Fields:	94
+	Fields:	95
+	Fields:	96
+	Fields:	97
+	Fields:	98
+	Fields:	99
+	Fields:	100
+	Fields:	101
+	Fields:	102
+	SelBits:	105
+	FSrc:	85
+)
+
+(dBASE.89
+	Name:	"munic_brasil.dbf"
+	Fields:	90
+	Fields:	91
+	Fields:	92
+	Fields:	93
+	Fields:	94
+	Fields:	95
+	Fields:	96
+	Fields:	97
+	Fields:	98
+	Fields:	99
+	Fields:	100
+	Fields:	101
+	Fields:	102
+	FileName:	103
+)
+
+(Field.90
+	Name:	"Id"
+	Btab:	89
+	Alias:	"Id"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	65
+)
+
+(Field.91
+	Name:	"Area"
+	Btab:	89
+	Alias:	"Area"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.92
+	Name:	"Geocodigo"
+	Btab:	89
+	Alias:	"Geocodigo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(Field.93
+	Name:	"Nome"
+	Btab:	89
+	Alias:	"Nome"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.94
+	Name:	"Nomecaps"
+	Btab:	89
+	Alias:	"Nomecaps"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.95
+	Name:	"Uf"
+	Btab:	89
+	Alias:	"Uf"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	17
+)
+
+(Field.96
+	Name:	"Coduf"
+	Btab:	89
+	Alias:	"Coduf"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	35
+)
+
+(Field.97
+	Name:	"Regiao"
+	Btab:	89
+	Alias:	"Regiao"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	125
+)
+
+(Field.98
+	Name:	"Mesorregia"
+	Btab:	89
+	Alias:	"Mesorregia"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.99
+	Name:	"Microrregi"
+	Btab:	89
+	Alias:	"Microrregi"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.100
+	Name:	"Rm"
+	Btab:	89
+	Alias:	"Rm"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.101
+	Name:	"Pop2004"
+	Btab:	89
+	Alias:	"Pop2004"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	77
+)
+
+(Field.102
+	Name:	"Densdemo"
+	Btab:	89
+	Alias:	"Densdemo"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	71
+)
+
+(FN.103
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/munic_brasil/munic_brasil.dbf"
+)
+
+(Field.104
+	Name:	"Shape"
+	Alias:	"Shape"
+	Visible:	1
+	Type:	19
+	Order:	-1
+	Pixels:	53
+)
+
+(Bitmap.105
+	NumBits:	5560
+
+)
+
+(Legend.106
+	SymType:	0x02
+	LegType:	0x01
+	ClassType:	0x03
+	Symbols:	107
+	Class:	112
+	StdDevs:	1.00000000000000
+	NullSym:	113
+	NullValues:	117
+	StatValues:	118
+	Precision:	-3
+)
+
+(SymList.107
+	Child:	108
+)
+
+(BShSym.108
+	Color:	109
+	Outline:	1
+	OutlineColor:	110
+	OutlineWidth:	0.10000000000000
+	BgColor:	111
+)
+
+(TClr.109
+	Red:	0xc33b
+	Green:	0xfc36
+	Blue:	0xff00
+)
+
+(TClr.110
+)
+
+(TClr.111
+	Red:	0xffff
+	Green:	0xffff
+	Blue:	0xffff
+)
+
+(LClass.112
+	IsText:	1
+	Precision:	-3
+)
+
+(BShSym.113
+	Color:	114
+	Outline:	1
+	OutlineColor:	115
+	OutlineWidth:	0.10000000000000
+	BgColor:	116
+)
+
+(TClr.114
+	Name:	"Transparent"
+)
+
+(TClr.115
+	Name:	"Transparent"
+)
+
+(TClr.116
+	Red:	0xffff
+	Green:	0xffff
+	Blue:	0xffff
+)
+
+(NameDict.117
+)
+
+(NameDict.118
+)
+
+(Thresh.119
+)
+
+(GSet.120
+)
+
+(TxPosPly.121
+	HAlign:	3
+	VAlign:	3
+)
+
+(Table.122
+	Name:	"Attributes of Munic_brasil.shp"
+	CreationDate:	"domingo, 13 de setembro de 2020 20:23:43"
+	GUIName:	"Table"
+	Win:	123
+	CSMgr:	124
+	DocExts:	126
+	VTab:	88
+)
+
+(DocWin.123
+	Owner:	122
+	X:	415
+	Y:	115
+	W:	448
+	H:	300
+)
+
+(CSMgr.124
+	Client:	125
+)
+
+(CSClient.125
+	Client:	84
+	ReqName:	"RespondTable"
+)
+
+(DocAct.126
+	Doc:	122
+)
+
+(AttrSingle.127
+	FTab:	88
+	Field:	90
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.128
+	FTab:	88
+	Field:	91
+	UnionRule:	5
+	SplitRule:	3
+)
+
+(AttrSingle.129
+	FTab:	88
+	Field:	92
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.130
+	FTab:	88
+	Field:	93
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.131
+	FTab:	88
+	Field:	94
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.132
+	FTab:	88
+	Field:	95
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.133
+	FTab:	88
+	Field:	96
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.134
+	FTab:	88
+	Field:	97
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.135
+	FTab:	88
+	Field:	98
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.136
+	FTab:	88
+	Field:	99
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.137
+	FTab:	88
+	Field:	100
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.138
+	FTab:	88
+	Field:	101
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(AttrSingle.139
+	FTab:	88
+	Field:	102
+	UnionRule:	1
+	SplitRule:	1
+)
+
+(FTheme.140
+	Name:	"View.shp"
+	Source:	141
+	Flags:	0x01
+	Legend:	155
+	Threshold:	174
+	View:	71
+	GSet:	175
+	LegEditScript:	"View.EditLegend"
+	TxPos:	176
+	LabelField:	146
+	Table:	177
+	SnapTolCursor:	1
+)
+
+(ShpSrc.141
+	Name:	142
+	FTab:	144
+)
+
+(SrcName.142
+	FileName:	143
+	Name:	"view.shp"
+	SubName:	"Point"
+	OwnerClass:	"ShpSrc"
+)
+
+(FN.143
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/arcview/view.shp"
+)
+
+(FTab.144
+	Name:	"view.dbf"
+	BTab:	145
+	Fields:	153
+	Fields:	146
+	Fields:	147
+	Fields:	148
+	Fields:	149
+	Fields:	150
+	Fields:	151
+	SelBits:	154
+	FSrc:	141
+)
+
+(dBASE.145
+	Name:	"view.dbf"
+	Fields:	146
+	Fields:	147
+	Fields:	148
+	Fields:	149
+	Fields:	150
+	Fields:	151
+	FileName:	152
+)
+
+(Field.146
+	Name:	"Name"
+	Btab:	145
+	Alias:	"Name"
+	Visible:	1
+	Type:	4
+	Order:	-1
+	Pixels:	150
+)
+
+(Field.147
+	Name:	"ID_empr"
+	Btab:	145
+	Alias:	"ID_empr"
+	Visible:	1
+	Type:	9
+	Order:	-1
+	Pixels:	45
+)
+
+(Field.148
+	Name:	"Cep"
+	Btab:	145
+	Alias:	"Cep"
+	Visible:	1
+	Type:	4
+	Order:	1
+	Pixels:	59
+)
+
+(Field.149
+	Name:	"Faturament"
+	Btab:	145
+	Alias:	"Faturamento 2019 (r$)"
+	Visible:	1
+	Type:	9
+	Order:	2
+	Pixels:	109
+)
+
+(Field.150
+	Name:	"Gestor_da_"
+	Btab:	145
+	Alias:	"Gestor da empresa"
+	Visible:	1
+	Type:	4
+	Order:	3
+	Pixels:	150
+)
+
+(Field.151
+	Name:	"Endereço"
+	Btab:	145
+	Alias:	"Endereço"
+	Visible:	1
+	Type:	4
+	Order:	4
+	Pixels:	137
+)
+
+(FN.152
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/arcview/view.dbf"
+)
+
+(Field.153
+	Name:	"Shape"
+	Alias:	"Shape"
+	Visible:	1
+	Type:	17
+	Order:	-1
+	Pixels:	41
+)
+
+(Bitmap.154
+	NumBits:	63
+
+)
+
+(Legend.155
+	LegType:	0x01
+	ClassType:	0x03
+	Symbols:	156
+	Class:	164
+	StdDevs:	1.00000000000000
+	NullSym:	165
+	NullValues:	172
+	StatValues:	173
+	Precision:	-3
+)
+
+(SymList.156
+	Child:	157
+)
+
+(BMkSym.157
+	Color:	158
+	BgColor:	159
+	Font:	160
+	Size:	8.00000000000000
+	Pattern:	35
+	Angle:	360.00000000000000
+)
+
+(TClr.158
+	Red:	0x8b5d
+	Green:	0x578f
+	Blue:	0xbbf2
+)
+
+(TClr.159
+	Name:	"Transparent"
+)
+
+(NFont.160
+	Family:	161
+	Name:	162
+	Style:	163
+	Weight:	1
+	Wideness:	1
+)
+
+(AVStr.161
+	S:	"@Dotum"
+)
+
+(AVStr.162
+	S:	"@Dotum"
+)
+
+(AVStr.163
+	S:	"Normal"
+)
+
+(LClass.164
+	IsText:	1
+	Precision:	-3
+)
+
+(BMkSym.165
+	Color:	166
+	BgColor:	167
+	Font:	168
+	Size:	8.00000000000000
+	Pattern:	35
+	Angle:	360.00000000000000
+)
+
+(TClr.166
+	Name:	"Transparent"
+)
+
+(TClr.167
+	Name:	"Transparent"
+)
+
+(NFont.168
+	Family:	169
+	Name:	170
+	Style:	171
+	Weight:	1
+	Wideness:	1
+)
+
+(AVStr.169
+	S:	"@Dotum"
+)
+
+(AVStr.170
+	S:	"@Dotum"
+)
+
+(AVStr.171
+	S:	"Normal"
+)
+
+(NameDict.172
+)
+
+(NameDict.173
+)
+
+(Thresh.174
+)
+
+(GSet.175
+)
+
+(TxPosPt.176
+	HAlign:	4
+	VAlign:	3
+)
+
+(Table.177
+	Name:	"Attributes of View.shp"
+	CreationDate:	"domingo, 13 de setembro de 2020 20:42:23"
+	GUIName:	"Table"
+	Win:	178
+	CSMgr:	179
+	DocExts:	181
+	VTab:	144
+)
+
+(DocWin.178
+	Owner:	177
+	X:	5
+	Y:	5
+	W:	373
+	H:	260
+)
+
+(CSMgr.179
+	Client:	180
+)
+
+(CSClient.180
+	Client:	140
+	ReqName:	"RespondTable"
+)
+
+(DocAct.181
+	Doc:	177
+)
+
+(GSet.182
+)
+
+(TxPosPt.183
+	HAlign:	4
+	VAlign:	3
+)
+
+(DocAct.184
+	Doc:	6
+)
+
+(Table.185
+	Name:	"grupo_empresas.txt"
+	CreationDate:	"domingo, 13 de setembro de 2020 20:15:17"
+	GUIName:	"Table"
+	Win:	186
+	CSMgr:	187
+	DocExts:	188
+	VTab:	189
+)
+
+(DocWin.186
+	Owner:	185
+	X:	1056
+	Y:	473
+	W:	373
+	H:	260
+)
+
+(CSMgr.187
+)
+
+(DocAct.188
+	Doc:	185
+)
+
+(VTab.189
+	Name:	"grupo_empresas.txt"
+	BTab:	190
+	Fields:	191
+	Fields:	192
+	Fields:	193
+	Fields:	194
+	Fields:	195
+	SelBits:	197
+)
+
+(DTxt.190
+	Name:	"grupo_empresas.txt"
+	Fields:	191
+	Fields:	192
+	Fields:	193
+	Fields:	194
+	Fields:	195
+	FileName:	196
+	Delim:	9
+	FFirst:	1
+)
+
+(Field.191
+	Name:	"Id empresa"
+	Btab:	190
+	Alias:	"Id empresa"
+	Visible:	1
+	Type:	9
+	Pixels:	57
+)
+
+(Field.192
+	Name:	"Cep"
+	Btab:	190
+	Alias:	"Cep"
+	Visible:	1
+	Type:	4
+	Order:	1
+	Pixels:	59
+)
+
+(Field.193
+	Name:	"Faturamento 2019 (r$)"
+	Btab:	190
+	Alias:	"Faturamento 2019 (r$)"
+	Visible:	1
+	Type:	9
+	Order:	2
+	Pixels:	109
+)
+
+(Field.194
+	Name:	"Gestor da empresa"
+	Btab:	190
+	Alias:	"Gestor da empresa"
+	Visible:	1
+	Type:	4
+	Order:	3
+	Pixels:	150
+)
+
+(Field.195
+	Name:	"Endereço"
+	Btab:	190
+	Alias:	"Endereço"
+	Visible:	1
+	Type:	4
+	Order:	4
+	Pixels:	137
+)
+
+(FN.196
+	Path:	"c:/users/c350212/desktop/gis/atividade_2_3/base empresas/grupo_empresas.txt"
+)
+
+(Bitmap.197
+	NumBits:	67
+
+)
+
+(LButn.198
+	HelpTopic:	"New_button"
+	Update:	"Doc.NewUpdate"
+	Label:	"&New"
+	Click:	"Table.New"
+)
+
+(LButn.199
+	HelpTopic:	"Open_button"
+	Update:	"Doc.OpenUpdate"
+	Label:	"&Open"
+	Click:	"Doc.Open"
+)
+
+(LButn.200
+	HelpTopic:	"Add_button"
+	Update:	"Table.ActionUpdate"
+	Label:	"&Add"
+	Click:	"Table.Action"
+)
+
+(FN.201
+	Path:	"$AVEXT/kml2shp.avx"
+)
+
+(FN.202
+	Path:	"$AVEXT/kml2shpv2_1.avx"
+)
+
+(NameDict.203
+)
+
+(NameDict.204
+	Obj:	205
+	Obj:	206
+)
+
+(AVDict.205
+	InternalName:	"Table of Contents Defaults Dialog"
+)
+
+(AVDict.206
+	InternalName:	"_Thor_"
+)
+
+(FN.1041
+	Path:	"$HOME"
+)
+
+(TClr.1042
+	Red:	0xffff
+	Green:	0xffff
+)
+
+(AVStr.1043
+	S:	"View"
+)
+
+(AVStr.1044
+	S:	"Table"
+)
+
+(AVStr.1045
+	S:	"Chart"
+)
+
+(AVStr.1046
+	S:	"Layout"
+)
+
+(AVStr.1047
+	S:	"Script"
+)
+
+(AVStr.1048
+	S:	"Project"
+)
+
+(AVStr.1049
+	S:	"Appl"
+)
+
