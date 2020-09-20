@@ -1,0 +1,5 @@
+"0","flights3 %>% "
+"0","  group_by(dia_semana) %>% "
+"0","  summarise(n_voos = n(), .groups = ""drop"") %>% "
+"0","  ggplot(mapping = aes(x = dia_semana, y = n_voos)) +"
+"0","  geom_col(fill = ""lightblue"") # voos totais por dia da semana"

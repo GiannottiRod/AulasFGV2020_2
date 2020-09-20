@@ -1,0 +1,6 @@
+"0","sum(is.na(flights2$arr_dep_time_diff))
+"
+"1","[1]"
+"1"," 8713"
+"1","
+"

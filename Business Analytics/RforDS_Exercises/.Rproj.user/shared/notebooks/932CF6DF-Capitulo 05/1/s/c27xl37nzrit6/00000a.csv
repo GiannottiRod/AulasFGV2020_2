@@ -1,0 +1,4 @@
+"0","(flights2 <- flights %>% mutate("
+"0","  dep_time_mins = (dep_time %/% 100) * 60 + dep_time %% 100,"
+"0","  sched_dep_time_mins = (sched_dep_time %/% 100) * 60 + sched_dep_time %% 100"
+"0","))"

@@ -50,19 +50,17 @@ Had an arrival delay of two or more hours
 flights %>% filter(
   arr_delay >= 120
   )
-   
 ```
 
 \newpage
 
 #### b
-Flew to Houston (IAH or HOU)
+Flew to Houston (IAH or HOU) 
 
 ```{r}
 flights %>% filter(
   dest %in% c("IAH","HOU")
   )
-   
 ```
 
 \newpage
@@ -74,7 +72,6 @@ Were operated by United, American or Delta
 flights %>% filter(
   carrier %in% c("UA", "AA", "DL")
   )
-   
 ```
 
 \newpage
@@ -87,7 +84,6 @@ summer <- c(7:9)
 flights %>% filter(
   month %in% summer
   )
-   
 ```
 
 \newpage
@@ -99,19 +95,17 @@ Arrived more than two hours late, but didn't leave late
 flights %>% filter(
   arr_delay >= 120 & dep_delay <= 0
   )
-   
 ```
 
 \newpage
 
 #### f
-Were delayed by at least an hour, but made up over 30 minutes in flight
+Were delayed by at least an hour, but made up over 30 minutes in flight 
 
 ```{r}
 flights %>% filter(
   dep_delay >= 60 & (dep_delay - arr_delay) >= 30
   )
-   
 ```
 
 \newpage
@@ -123,7 +117,6 @@ Departed between 00:00 and 6:00 (inclusive)
 flights %>%  filter( 
   dep_time <= 600 | dep_time == 2400
   )
-     
 ```
 
 \newpage
@@ -136,8 +129,8 @@ previous challenges?
 ```{r}
 # ?between
 ```
-
-Como dito na ajuda, "This is a shortcut for x >= left & x <= right" ou seja, é uma maneira de testar se valores dentro de um vetor estão dentro de dois limites.
+\par
+Como dito na ajuda, "This is a shortcut for x >= left & x <= right" ou seja, é uma maneira de testar se valores dentro de um vetor estão dentro de dois limites. \par
 Isso só seria útil para simplificar a questão dos meses do verão
 
 ```{r}
@@ -150,8 +143,7 @@ flights %>% filter(
 \newpage
 
 ### 5.2.3 
-How many flights have a missing dep_time? What other vari‐
-ables are missing? What might these rows represent?
+How many flights have a missing dep_time? What other variables are missing? What might these rows represent?
 
 ```{r}
 flights %>% filter(
@@ -159,10 +151,10 @@ flights %>% filter(
   )
    
 ```
-
+\par
 Podemos ver que os voos com dep_time vazio apresentam outras colunas vazias, como dep_delay; arr_time; arr_delay; e air_time
-
-isso muito provavelmente indica voos que foram cancelados
+\par
+Isso muito provavelmente indica voos que foram cancelados
 
 \newpage
 
@@ -255,7 +247,7 @@ flights %>% arrange(
 Brainstorm as many ways as possible to select dep_time,
 dep_delay, arr_time, and arr_delay from flights.
 
-por mais que uma partida de regex golf sempre tenha seu valor nostalgico a função starts_with() resolve o problema com mais simplicidade
+Por mais que uma partida de regex golf sempre tenha seu valor nostalgico a função starts_with() resolve o problema com mais simplicidade
 ```{r}
 flights %>% select(
   starts_with("dep_"
@@ -334,7 +326,7 @@ flights %>% select(
 Currently dep_time and sched_dep_time are convenient to look at, but hard to compute with because they’re not really continuous numbers. Convert them to a more convenient representation of number of minutes since midnight.
 
 ```{r}
-(flights %<>% mutate(
+(flights2 <- flights %>% mutate(
   dep_time_mins = (dep_time %/% 100) * 60 + dep_time %% 100,
   sched_dep_time_mins = (sched_dep_time %/% 100) * 60 + sched_dep_time %% 100
 ))
@@ -344,26 +336,51 @@ Currently dep_time and sched_dep_time are convenient to look at, but hard to com
 
 ### 5.5.2
 Compare air_time with arr_time - dep_time. What do you expect to see? What do you see? What do you need to do to fix it?
+\par
+Primeiro vamos dar o mesmo tratamento que demos para os horários de saída para os horários de chegada
 
 ```{r}
-flights %<>% mutate(
-  dep_time_mins = (dep_time %/% 100) * 60 + dep_time %% 100,
+flights2 %<>% mutate(
+  sched_arr_time_mins = (sched_arr_time %/% 100) * 60 + sched_arr_time %% 100,
   arr_time_mins = (arr_time %/% 100) * 60 + arr_time %% 100
 )
+```
+\par
+Com isso vamos criar uma nova coluna, que compara o horário efetivo de saída com o de chegada, tomando alguns cuidados, especialmente com voos que saem em uma data e chegam em outra. Supoe-se que nenhum voo voa por mais de 24h nesse caso (e uma rápida olhada para a coluna air_time confirma isso)
 
-flights %<>% mutate(
+```{r}
+flights2 %<>% mutate(
   arr_dep_time_diff = ifelse(
     arr_time_mins >= dep_time_mins, # se o voo chegou no dia seguinte a conta arr_time - dep_time daria negativa, o que seria um absurdo.
     arr_time_mins - dep_time_mins, # caso não hajam problemas
     arr_time_mins - dep_time_mins + 24*60) # adicionando o numero de minutos em um dia caso o voo tenha mudado de dia no ar
   )
-
-flights %>% mutate(
-  comparação =
-    air_time - arr_dep_time_diff
-) %>% select(comparação) %>% boxplot()
 ```
-Esperaria-se que essa comparação fosse sempre igual a 0, visto que se espera que o tempo de voo se iguale à diferença de hora de saída e hora de chegada, o problema é que neste caso estamos ignorando o tempo de taxi (poderiamos ter questoes de fuso horario, mas ?flights nos informa que todos os horarios estão na timezone de NYC)
+\par
+Agora vamos comparar a diferença entre horário de saída com a coluna air_time
+
+```{r, fig.height= 5, fig.width = 5}
+flights2 %>% 
+  na.omit() %>% 
+  mutate(
+  comparacao =
+    air_time - arr_dep_time_diff
+) %>% 
+  select(comparacao) %>% 
+  boxplot()
+
+flights2 %>% 
+  na.omit() %>% 
+  mutate(
+  comparacao =
+    air_time - arr_dep_time_diff
+) %>% 
+  select(comparacao) %>%
+  summary()
+```
+\par
+Esperaria-se que essa comparação fosse sempre igual a 0, visto que se espera que o tempo de voo se iguale à diferença de hora de saída e hora de chegada, o problema é que neste caso estamos ignorando o tempo de taxi e que existam imperfeições de registro.
+(poderiamos ter questoes de fuso horario, mas ?flights nos informa que todos os horarios estão na timezone de NYC)
 
 \newpage
 
@@ -371,7 +388,7 @@ Esperaria-se que essa comparação fosse sempre igual a 0, visto que se espera q
 Compare dep_time, sched_dep_time, and dep_delay. How would you expect those three numbers to be related?
 
 ```{r}
-flights %>% mutate(
+flights2 %>% mutate(
   comparison = ifelse(
     dep_time_mins >= (sched_dep_time_mins + dep_delay),
     dep_time_mins - (sched_dep_time_mins + dep_delay),
@@ -389,9 +406,9 @@ Esperaria-se que essa comparação retornasse valor nulo, o que confirmamos com 
 Find the 10 most delayed flights using a ranking function. How do you want to handle ties? Carefully read the documentation for min_rank().
 
 ```{r}
-flights %>% mutate(
-  rank_delay = min_rank(
-    desc(
+flights %>% 
+  mutate(
+  rank_delay = min_rank( desc(
       arr_delay + dep_delay
 ))) %>% 
   arrange(rank_delay) %>% 
@@ -439,6 +456,14 @@ O texto de ajuda das funções trigonometricas lista as seguintes:
 
 ## 5.6 summarise()
 
+\par
+Para essa seção em alguns exercícios utilizaremos uma tabela com os voos que foram  cancelados.
+
+```{r}
+not_cancelled <- flights %>% 
+  filter(!is.na(dep_delay), !is.na(arr_delay))
+```
+
 ### 5.6.1 
 Brainstorm at least 5 different ways to assess the typical delay characteristics of a group of flights. Consider the following scenarios:
 
@@ -460,17 +485,110 @@ Which is more important: arrival delay or departure delay?
 ### 5.6.2
 Come up with another approach that will give you the same output as not_cancelled %>% count(dest) and not_cancelled %>% count(tailnum, wt = distance) (without using count()).
 
+```{r, warning=FALSE}
+identical(
+  not_cancelled %>% count(dest),
+  not_cancelled %>% 
+    group_by(dest) %>% 
+    summarise(n = n(), .groups = 'drop')
+)
+
+identical(
+  not_cancelled %>% count(tailnum, wt = distance),
+  not_cancelled %>%
+    group_by(tailnum) %>% 
+    summarise(n = sum(distance), .groups = 'drop')
+)
+```
+
+\newpage
+
 ### 5.6.3
 Our definition of cancelled flights (is.na(dep_delay) | is.na(arr_delay) ) is slightly suboptimal. Why? Which is the most important column?
+\par
+Primeiro, vamos olhar para a coluna com a maior quantidade de NAs
+```{r}
+flights %>% filter(is.na(arr_delay))
+```
+\par
+Encontramos alguns voos com horário de saída, horário de chegada, mas nem tempo de voo nem atraso de chegada. \par
+É difícil saber como considerar se estes voos foram ou não cancelados, mas me parece que o mais correto seria considerar um voo cancelado como aquele que não decolou, e portanto, tem dep_time == NA
+
+\newpage
 
 ### 5.6.4
 Look at the number of cancelled flights per day. Is there a pattern? Is the proportion of cancelled flights related to the average delay?
 
+\par É de se imaginar que se existe algum padrão de cancelamentos ou atrasos estes se dariam em datas especiais ou em dias da semana mais comuns. Para isso usando a coluna time_hour e o pacote lubridate podemos criar colunas para ter mais insights sobre esses padrões.
+```{r}
+flights3 <- flights %>% 
+  mutate(dia_semana = lubridate::wday(time_hour))
+
+flights3 %>% 
+  group_by(dia_semana) %>% 
+  summarise(soma_cancelados = sum(is.na(dep_time)), .groups = "drop") %>% 
+  ggplot(mapping = aes(x = dia_semana, y = soma_cancelados)) +
+  geom_col(fill = "lightblue") # voos cancelados por dia da semana
+```
+\par
+Primeiro podemos ver que muito menos voos foram cancelados durante o fim de semana, mas será que existe uma correlação com o número total de voos nesses dias?
+
+```{r}
+flights3 %>% 
+  group_by(dia_semana) %>% 
+  summarise(n_voos = n(), .groups = "drop") %>% 
+  ggplot(mapping = aes(x = dia_semana, y = n_voos)) +
+  geom_col(fill = "lightblue") # voos totais por dia da semana
+```
+\par
+Por mais que realmente existam menos voos marcados durante fins de semana parece que muitos mais são cancelados durante a semana do que em fins de semana.
+
+\newpage
+
 ### 5.6.5
 Which carrier has the worst delays? Challenge: can you disentangle the effects of bad airports vs. bad carriers? Why/why not? (Hint: think about flights %>% group_by(carrier, dest) %>% summarise(n()))
+\par
+Para essa Análise me parece o mais razoável analizar somente o arr_delay, visto que por mais chato que seja ficar aguardando no aeroporto no final o que mais importa é se o avião chega ao seu destino final no horário, para os passageiros.
+```{r, fig.height= 6}
+not_cancelled %>% 
+  group_by(carrier) %>% 
+  summarise(sum_delays = sum(arr_delay), .groups = 'drop') %>% 
+  ggplot(mapping = aes(x = reorder(carrier, X = sum_delays), y = sum_delays, fill = sum_delays)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_gradient(low="green", high="red") + 
+  xlab("Carrier Code") + 
+  ggtitle("Atrasos por companhia, soma")
+```
+\par
+Por mais bonito que o gráfico possa ficar o mais justo seria considerar o atraso médio, não o total de atrasos no período (ou ainda vale pensar qual a medida estatística mais adequada, por exemplo uma medida mais robusta poderia ser mais interessante para o passageiro médio). \par
+Feitas essas considerações seguimos com o exercício.
+
+```{r}
+not_cancelled %>% 
+  group_by(origin) %>% 
+  summarise(sum_delays = sum(arr_delay), .groups = 'drop') %>% 
+  ggplot(mapping = aes(x = reorder(origin, X = sum_delays), y = sum_delays, fill = sum_delays)) +
+  geom_col() +
+  coord_flip() +
+  scale_fill_gradient(low="green", high="red") + 
+  xlab("Aeroporto saída") + 
+  ggtitle("Atrasos por aeroporto, soma")
+```
+\par
+É bastante evidente que as companhias que mais voam de EWR inevitavelmente incorrerão em mais atrasos na média. \par
+Poderiamos tentar um score que ponderasse o atraso médio dos aeroportos na avaliação das companhias aéreas, mas ainda assim é possível argumentar que as responsáveis pelos atrasos nos aeroportos sejam as companhias que lá mais operam.
+
+\newpage
 
 ### 5.6.6
 What does the sort argument to count() do. When might you use it?
+
+```{r}
+# ?count
+```
+\par
+O arguimento sort, se == TRUE fará com que na saída da função count() os maiores grupos estarão no topo, ordenados.
 
 \newpage
 

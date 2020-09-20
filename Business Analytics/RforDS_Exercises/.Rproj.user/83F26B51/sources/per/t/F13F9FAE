@@ -3,7 +3,7 @@
     "path": "D:/Documents/GitHub/AulasFGV2020_2/Business Analytics/RforDS_Exercises/Capitulo 13.Rmd",
     "project_path": "Capitulo 13.Rmd",
     "type": "r_markdown",
-    "hash": "2952515181",
+    "hash": "511819837",
     "contents": "",
     "dirty": false,
     "created": 1600621902247.0,
@@ -11,15 +11,17 @@
     "relative_order": 3,
     "properties": {
         "tempName": "Untitled1",
-        "cursorPosition": "18,41",
-        "scrollLine": "1"
+        "cursorPosition": "84,0",
+        "scrollLine": "60",
+        "docOutlineVisible": "1",
+        "last_setup_crc32": "758ADB1De8babc7"
     },
     "folds": "",
-    "lastKnownWriteTime": 1600632057,
+    "lastKnownWriteTime": 1600644561,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1600632057823,
+    "last_content_update": 1600644561179,
     "read_only": false,
     "read_only_alternatives": []
 }

@@ -1,2 +1,0 @@
-"0","summer <- c(7:9)"
-"0","flights %>% filter(month %in% summer)"

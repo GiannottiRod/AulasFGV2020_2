@@ -1,0 +1,4 @@
+"0",""
+"0","flights %>% arrange("
+"0","  dep_delay"
+"0","  )   # menor atraso de saída"

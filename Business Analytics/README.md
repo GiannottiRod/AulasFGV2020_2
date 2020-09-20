@@ -6,6 +6,9 @@
 
 ## Pastas
 * RforDS_Exercises
+  * Cap 03
+  * Cap 05
+  * Cap 13
 
 ## Linguagens Principais
 * R
