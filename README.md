@@ -10,8 +10,18 @@ Neste repositorio estão as anotações de aula e exercicios das materias do seg
 
 ## Data Wrangling
 
+* Quiz 1 - 22/09 :heavy_check_mark:
+
 ## Business Analytics
+
+* R for Data Science
+  * Cap 03
+  * Cap 05
+  * Cap 13
 
 ## Geomarketing
 
+* Roteiros de estudo para QGIS
+
 ## Monte Carlo
+

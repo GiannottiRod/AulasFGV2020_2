@@ -6,8 +6,7 @@
 
 ## Pastas
 * Exercícios
-* Anotações de aula
-* Arquivos eclass
+* Roteiros de Estudo
 
 ## Linguagens principais
 * QGIS

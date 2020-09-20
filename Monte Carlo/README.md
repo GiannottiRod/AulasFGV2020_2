@@ -5,9 +5,9 @@
 * **Qui 11:00 - 12:50**
 
 ## Pastas
-* Exercícios
-* Anotações de aula
-* Arquivos eclass
+* Exercícios_Excel
+* Exercícios_R
+
 
 ## Linguagens principais
 * Excel
