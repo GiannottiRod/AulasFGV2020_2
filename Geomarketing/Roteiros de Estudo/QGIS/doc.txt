@@ -1,0 +1,16 @@
+EstatEspac_1S2019_QGIS_Definindo Sistema de Referência Espacial - Browser
+- Não existe mais QGIS Browser nessa versão 3.6
+
+02_EstatEspac_1S2019_QGIS_Address Matching
+- utilizar o layer lograd_sp que tem o campo nome_comp, pois tem o Tipo junto com o nome do logradouro, caso contrário não encontra/geocodifica nenhum endereço
+
+06_EstatEspac_1S2019_QGIS_Join entre Temas_Geográfico:
+- join espacial não funcionou, pois deu erro de geometria inválida em distritos
+- criei novo layer distritos_sp:
+	- menu Processar -> Caixa de Ferramentas para abrir Caixa de Ferramentas: clicar em Geometria do Vetor -> Fixar geometrias para arrumar geometria inválida de distritos_sp
+	
+12_EstatEspac_1S2019_QGIS_Sumarização de Tabelas e Métodos de Classificação:
+- join espacial não funcionou, erro de geometria em distritos
+- criei outro layer distritos_sp_proj, da mesma forma que o distritos_sp acima
+
+

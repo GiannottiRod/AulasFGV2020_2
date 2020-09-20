@@ -1,0 +1,38 @@
+---
+title: "Exercícios Cap 13"
+author: "Rodrigo Giannotti"
+date: "05/09/2020"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(fig.width=6 , fig.height=3) 
+```
+\setlength{\parindent}{4ex}
+
+# Capitulo 13
+
+## Inicialização
+
+```{r, include = FALSE}
+library(tidyverse)
+library(magrittr) # mais pipes, como %<>%
+library(lubridate) # melhor manejo de datas
+```
+
+```{r, eval = FALSE}
+library(tidyverse)
+library(magrittr) # mais pipes, como %<>%
+library(lubridate) # melhor manejo de datas
+```
+
+Para o capitulo 13 também utilizaremos a biblioteca de voos de NYC
+```{r}
+library(nycflights13)
+# ?flights
+# View(flights)
+head(flights)
+```
+
+\newpage
+## Exercícios
