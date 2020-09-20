@@ -1,0 +1,32 @@
+{
+    "id": "A441C8C7",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1600619722762.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "expression": "cam",
+        "caption": "cam",
+        "totalObservations": 1971,
+        "displayedObservations": 1971,
+        "variables": 8,
+        "cacheKey": "AEAF4265",
+        "object": "cam",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=cam&cache_key=AEAF4265&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2314885530450158965,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1600619722762,
+    "read_only": false,
+    "read_only_alternatives": []
+}

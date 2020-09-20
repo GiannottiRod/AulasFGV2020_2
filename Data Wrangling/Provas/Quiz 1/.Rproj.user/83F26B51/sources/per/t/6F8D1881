@@ -3,21 +3,23 @@
     "path": "D:/Documents/GitHub/AulasFGV2020_2/Data Wrangling/Provas/Quiz 1/Quiz1_script.R",
     "project_path": "Quiz1_script.R",
     "type": "r_source",
-    "hash": "0",
+    "hash": "1823013860",
     "contents": "",
     "dirty": false,
     "created": 1600615678699.0,
     "source_on_save": false,
     "relative_order": 1,
     "properties": {
-        "tempName": "Untitled1"
+        "tempName": "Untitled1",
+        "cursorPosition": "37,28",
+        "scrollLine": "0"
     },
     "folds": "",
-    "lastKnownWriteTime": 1600615697,
+    "lastKnownWriteTime": 1600619962,
     "encoding": "UTF-8",
     "collab_server": "",
     "source_window": "",
-    "last_content_update": 1600615697864,
+    "last_content_update": 1600619962041,
     "read_only": false,
     "read_only_alternatives": []
 }
