@@ -6,6 +6,8 @@
 
 ## Pastas
 * RforDS_Exercises
+* Anotações de aula
+* Provas
 
 ## Linguagens Principais
 * R

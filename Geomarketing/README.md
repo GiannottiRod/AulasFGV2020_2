@@ -6,7 +6,9 @@
 
 ## Pastas
 * Exercícios
-* Roteiros de Estudo
+* Anotações de aula
+* Arquivos eclass
+
 ## Linguagens principais
 * QGIS
 * ArcViewGIS
