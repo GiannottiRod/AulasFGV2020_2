@@ -1,0 +1,498 @@
+---
+title: "Text Mining"
+subtitle: "Topic Modelling"
+author: "Prof.Gustavo Mirapalheta"
+output:
+  ioslides_presentation:
+    incremental: no
+    mouse_click_enabled: yes
+    widescreen: yes
+    smaller: yes
+    df_print: tibble
+  beamer_presentation: default
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning=FALSE, message=FALSE)
+library(tidyverse)
+library(tidytext)
+library(dplyr)
+library(janeaustenr)
+library(gutenbergr)
+library(scales)
+```
+
+## Topic Modeling
+
+- Similar a Análise de Clusters. Ela trata cada documento como uma mistura de tópicos e cada tópico como uma mistura de palavras. Isto permite a sobreposição dos grupos, refletindo a ambiguidade da linguagem natural. O método de alocação dos clusters é o LDA (Latent Dirichlet Allocation)
+
+```{r tidyflowchartch6, echo=FALSE, out.width = '60%', fig.align='center', fig.cap = "Text analysis incorporando a técnica Topic Modeling"}
+knitr::include_graphics("../imagens/tidyflow-ch-6.png")
+```
+
+## LDA (Latent Dirichlet Allocation)
+
+- A LDA é um algoritmo para modelagem de tópico. Ele se baseia em dois princípios:
+
+    - **Cada documento é uma mistura de tópicos.** Cada documento pode conter palavras de vários tópicos em diferentes proporções. Por exempplo: Documento 1 é composto de palavras as quais 90% delas pertencem ao tópico A e 10% ao tópico B, enquanto que o Documento 2 é 30% tópico A e 70% tópico B.
+    
+    - **Cada tópico é uma mistura de palavras.** E uma palavra pode pertencer simultaneamente a dois tópicos. Por exemplo, em um modelo com os tópicos política e entretenimento, a palavra "orçamento" poderia pertencer a ambos.
+
+- A LDA é um método matemático para estimar simultaneamente a mistura de palavras associadas a cada tópico e a mistura de tópicos que descreve cada documento.
+
+## Topic Modeling no Associated Press Dataset
+
+- O dataset `AssociatedPress` (pacote *topicmodels*) é um exemplo de uma DocumentTermMatrix com 2246 artigos, a maioria publicados em 1988.
+
+```{r}
+library(topicmodels)
+data("AssociatedPress"); AssociatedPress
+```
+
+- Pode-se utilizar a função `LDA()` com `k = 2`, para criar um modelo LDA de dois tópicos. Essa função retorna um objeto descrevendo as palavras associadas a cada tópico e os tópicos associados a cada documento.
+
+```{r ap_lda, eval=FALSE}
+# set a seed so that the output of the model is predictable
+ap_lda <- LDA(AssociatedPress, k = 2, control = list(seed = 1234))
+ap_lda
+
+## A LDA_VEM topic model with 2 topics.
+```
+
+
+```{r ap_lda2, echo=FALSE}
+load("../dados/silge/ap_lda.data")
+```
+
+## Probabilidades Palavra-Tópico
+
+As probabilidades por par Palavra-Tópico (chamadas de *betas* do modelo) podem ser obtidas através da função `tidy()` (pacote broom). Isto coloca o modelo no formato um tópico por termo por linha. 
+
+```{r ap_topics}
+library(tidytext)
+
+ap_topics <- tidy(ap_lda, matrix = "beta")
+ap_topics
+```
+
+## Palavras Mais Comuns por Tópico
+
+- Vamos usar a função `top_n()` do *dplyr* para listar as 10 palavras mais comuns em cada tópico e apresentar o resultado de forma gráfica com o *ggplot2* (vide a seguir).
+
+- Será possível perceber que os tópicos estão relacionados com "empresas" e "política"
+
+```{r aptoptermsplot, eval=FALSE, fig.height=5, fig.width=7, fig.cap = "Termos mais comuns em cada tópico"}
+library(ggplot2)
+library(dplyr)
+
+ap_top_terms <- ap_topics %>%
+  group_by(topic) %>%
+  top_n(10, beta) %>%
+  ungroup() %>%
+  arrange(topic, -beta)
+
+ap_top_terms %>%
+  mutate(term = reorder(term, beta)) %>%
+  ggplot(aes(term, beta, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  coord_flip()
+```
+
+## Palavras Mais Comuns por Tópico
+
+```{r aptoptermsplot2, echo=FALSE, fig.height=5.5, fig.width=8, fig.align="center"}
+library(ggplot2)
+library(dplyr)
+
+ap_top_terms <- ap_topics %>%
+  group_by(topic) %>%
+  top_n(10, beta) %>%
+  ungroup() %>%
+  arrange(topic, -beta)
+
+ap_top_terms %>%
+  mutate(term = reorder(term, beta)) %>%
+  ggplot(aes(term, beta, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  coord_flip()
+```
+
+## Termos com a maior diferença entre os $\beta$s
+
+- Para obter esta diferença vamos calcular o log em base 2 da razão entre os betas de cada tópico ($\log_2(\frac{\beta_2}{\beta_1})$). Isto torna a diferença simétrica (pois $\log(\frac{1}{n})=-\log(n)$). Para apresentar os resultados, vamos filtrar as linhas para os casos em que a diferença seja maior que 1/1000 em um dos tópicos.
+
+```{r beta_spread}
+library(tidyr)
+beta_spread <- ap_topics %>%
+  mutate(topic = paste0("topic", topic)) %>% spread(topic, beta) %>%
+  filter(topic1 > .001 | topic2 > .001) %>% mutate(log_ratio = log2(topic2 / topic1)); beta_spread
+```
+
+## Termos com a maior diferença entre os $\beta$s
+
+- O gráfico dos termos com a diferença mais significativa pode ser gerado com os comandos abaixo:
+
+```{r topiccompare, echo = TRUE, eval=FALSE}
+beta_spread %>%
+  group_by(direction = log_ratio > 0) %>%
+  top_n(10, abs(log_ratio)) %>%
+  ungroup() %>%
+  mutate(term = reorder(term, log_ratio)) %>%
+  ggplot(aes(term, log_ratio)) +
+  geom_col() +
+  labs(y = "Log2 ratio of beta in topic 2 / topic 1") +
+  coord_flip()
+```
+
+## Termos com a maior diferença entre os $\beta$s
+
+```{r topiccompare2, echo = FALSE, fig.height=5.5, fig.width=8.5, fig.align="center"}
+beta_spread %>%
+  group_by(direction = log_ratio > 0) %>%
+  top_n(10, abs(log_ratio)) %>%
+  ungroup() %>%
+  mutate(term = reorder(term, log_ratio)) %>%
+  ggplot(aes(term, log_ratio)) +
+  geom_col() +
+  labs(y = "Log2 ratio of beta in topic 2 / topic 1") +
+  coord_flip()
+```
+
+## Probabilidades Documento-Tópico
+
+- Além de estimar cada tópico como uma mistura de palavras, a LDA também modela cada documento como uma mistura de tópicos. As probabilidades Documento-Tópico, chamadas de $\gamma$ ("gamma"), podem ser obtidas através da função `tidy()` e do uso do argumento `matrix = "gamma"`.
+
+```{r ap_documents}
+ap_documents <- tidy(ap_lda, matrix = "gamma")
+ap_documents
+```
+
+## Probabilidades Documento-Tópico
+
+- No slide anterior pode-se perceber que o documento 6 tem uma probabilidade quase nula de pertencer ao Tópico 1. Abaixo listamos as palavras mais comuns neste documento e percebemos que o mesmo diz respeito às relações políticas entre os Estados Unidos e o então ditador Panamenho, Manuel Noriega.
+
+```{r ap_document_6}
+tidy(AssociatedPress) %>%
+  filter(document == 6) %>%
+  arrange(desc(count))
+```
+
+## Reconstruindo livros a partir dos seus capítulos
+
+- Suponha que você tenha os capítulos individuais de quatro livros, porém eles não estão marcados. Os livros são:
+    - *Great Expectations* de Charles Dickens
+    - *The War of the Worlds* de H.G. Wells
+    - *Twenty Thousand Leagues Under the Sea* de Jules Verne
+    - *Pride and Prejudice* de Jane Austen
+    
+- Vamos verificar se o algorítmo LDA é capaz de recolocar os capítulos em seus livros originais. 
+
+- Primeiro baixamos os livros do projeto Gutemberg
+
+```{r titles}
+titles <- c("Twenty Thousand Leagues under the Sea", "The War of the Worlds",
+            "Pride and Prejudice", "Great Expectations")
+```
+
+```{r eval = FALSE}
+library(gutenbergr)
+
+books <- gutenberg_works(title %in% titles) %>%
+  gutenberg_download(meta_fields = "title")
+```
+
+```{r topic_books, echo = FALSE}
+load("../dados/silge/books.rda")
+```
+
+## Preparação: Dividindo os Textos por Capítulo
+
+- Usaremos `unnest_tokens()` para separar os textos em palavras e remover as `stop_words`. Cada capítulo será considerado um documento, e terá um nome como: `Pride and Prejudice_11`. 
+
+```{r word_counts1}
+library(stringr)
+# divide into documents, each representing one chapter
+by_chapter <- books %>% group_by(title) %>%
+  mutate(chapter = cumsum(str_detect(text, regex("^chapter ", ignore_case = TRUE)))) %>%
+  ungroup() %>% filter(chapter > 0) %>% unite(document, title, chapter)
+by_chapter
+```
+
+## Divisão por palavras
+
+```{r word_counts2}
+# split into words
+by_chapter_word <- by_chapter %>%
+  unnest_tokens(word, text)
+
+by_chapter_word
+```
+
+## Contagem de palavras por documento
+
+```{r, word_counts3}
+# find document-word counts
+word_counts <- by_chapter_word %>%
+  anti_join(stop_words) %>%
+  count(document, word, sort = TRUE) %>%
+  ungroup()
+
+word_counts
+```
+
+## Análise LDA nos Capítulos: Formatação
+
+- O data frame `word_counts` está em formato *tidy*, com um termo por documento por linha. O pacote *topicsmodel* requer uma DTM (`DocumentTermMatrix`). Para converter os formatos utilizaremos a função `cast_dtm()`.
+
+```{r chapters_dtm}
+chapters_dtm <- word_counts %>%
+  cast_dtm(document, word, n)
+
+chapters_dtm
+```
+
+## Análise LDA nos capítulos: Modelo
+
+- Vamos criar um modelo de quatro tópicos através da função `LDA()`. 
+
+```{r, echo=FALSE}
+load(file="../dados/silge/chapters_lda.data")
+```
+
+```{r chapters_lda, eval=FALSE}
+chapters_lda <- LDA(chapters_dtm, k = 4, control = list(seed = 1234))
+chapters_lda
+```
+
+## Análise LDA nos capítulos: $\beta$s
+
+- Vamos obter as probabilidades Palavra-Tópico (os $\beta$s) do modelo através da função `tidy()`. Observe que a palavra `Joe` tem quase 0% de probabilidade de pertencer aos tópicos 1, 2, 3 e aprox.1,45% de pertencer ao tópico 4.
+
+```{r chapter_topics}
+chapter_topics <- tidy(chapters_lda, matrix = "beta")
+chapter_topics
+```
+
+## Análise LDA nos capítulos: $\beta$s
+
+- Através da função dplyr's `top_n()` pode-se encontrar os 5 termos principais em cada tópico (vide slide a seguir).
+
+```{r top_terms, eval=FALSE}
+top_terms <- chapter_topics %>% 
+  group_by(topic) %>% 
+  top_n(5, beta) %>% 
+  ungroup() %>% 
+  arrange(topic, -beta)
+
+top_terms
+```
+
+## Análise LDA nos capítulos: $\beta$s
+
+```{r top_terms2, echo=FALSE}
+top_terms <- chapter_topics %>% 
+  group_by(topic) %>% 
+  top_n(5, beta) %>% 
+  ungroup() %>% 
+  arrange(topic, -beta)
+
+top_terms
+```
+
+## Análise LDA nos capítulos: $\beta$s
+
+- O dataframe do slide anterior pode ser apresentado de forma gráfica (a seguir).
+
+```{r eval=FALSE, fig.height=5.5, fig.width=8.5, fig.align="center"}
+top_terms %>%
+  mutate(term = reorder(term, beta)) %>%
+  ggplot(aes(term, beta, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  coord_flip()
+```
+
+## Análise LDA nos capítulos: $\beta$s
+
+```{r echo=FALSE, fig.height=5.5, fig.width=8.5, fig.align="center"}
+top_terms %>%
+  mutate(term = reorder(term, beta)) %>%
+  ggplot(aes(term, beta, fill = factor(topic))) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ topic, scales = "free") +
+  coord_flip()
+```
+
+## Análise LDA nos capítulos: $\gamma$s
+
+- Vamos agora observar a probabilidade de cada capítulo pertencer a um tópico. Para isso utilizamos o parâmetro `matrix = gamma` da função `tidy()`.
+
+```{r chapters_gamma_raw}
+chapters_gamma <- tidy(chapters_lda, matrix = "gamma")
+chapters_gamma
+```
+
+## Análise LDA nos capítulos: $\gamma$s
+
+- Para determinar se as classificações foram corretas, vamos primeiro separar o número do capítulo do título do livro
+
+```{r chapters_gamma}
+chapters_gamma <- chapters_gamma %>%
+  separate(document, c("title", "chapter"), sep = "_", convert = TRUE)
+
+chapters_gamma
+```
+
+## Análise LDA nos capítulos: $\gamma$s
+
+- Com o dataframe anterior vamos desenhar um boxplot com a probabilidade $\gamma$ de cada capítulo na vertical e os quatro tópicos na horizontal (gráfico a seguir).
+
+- Será possível observar que o algoritmo acertou todos os capítulos de *Pride and Prejudice*, *The War of The Worlds* e *Twenty Thousand Leagues Under The Sea* e a maioria dos capítulos de *Great Expectations*. 
+
+```{r chaptersldagamma, eval=FALSE, fig.width=8, fig.height=8}
+# reorder titles in order of topic 1, topic 2, etc before plotting
+chapters_gamma %>%
+  mutate(title = reorder(title, gamma * topic)) %>%
+  ggplot(aes(factor(topic), gamma)) +
+  geom_boxplot() +
+  facet_wrap(~ title)
+```
+
+## Análise LDA nos capítulos: $\gamma$s
+
+```{r chaptersldagamma2, echo=FALSE, fig.width=8.5, fig.height=5.5}
+# reorder titles in order of topic 1, topic 2, etc before plotting
+chapters_gamma %>%
+  mutate(title = reorder(title, gamma * topic)) %>%
+  ggplot(aes(factor(topic), gamma)) +
+  geom_boxplot() +
+  facet_wrap(~ title)
+```
+
+## Análise LDA nos capítulos: $\gamma$s
+
+- Vamos primeiro determinar o tópico que obteve a maior classificação em cada capítulo.
+
+```{r chapter_classifications}
+chapter_classifications <- chapters_gamma %>%
+  group_by(title, chapter) %>%
+  top_n(1, gamma) %>%
+  ungroup()
+
+chapter_classifications
+```
+
+## Análise LDA nos capítulos: $\gamma$s
+
+- Podemos então comparar, para cada capítulo, o tópico para o qual ele foi classificado com o tópico obtido por "consenso" para o livro e identificar aqueles que foram classificados de forma errônea (a seguir).
+
+```{r book_topics, eval=FALSE}
+book_topics <- chapter_classifications %>%
+  count(title, topic) %>%
+  group_by(title) %>%
+  top_n(1, n) %>%
+  ungroup() %>%
+  transmute(consensus = title, topic)
+
+chapter_classifications %>%
+  inner_join(book_topics, by = "topic") %>%
+  filter(title != consensus)
+```
+
+## Análise LDA nos capítulos: $\gamma$s
+
+```{r book_topics2}
+book_topics <- chapter_classifications %>%
+  count(title, topic) %>%
+  group_by(title) %>%
+  top_n(1, n) %>%
+  ungroup() %>%
+  transmute(consensus = title, topic); book_topics
+```
+
+## Análise LDA nos capítulos: $\gamma$s
+
+- Vemos aqui que apenas dois capítulos de *Great Expectations* foram classificados de forma errada.
+
+```{r book_topics3}
+chapter_classifications %>%
+  inner_join(book_topics, by = "topic") %>%
+  filter(title != consensus)
+```
+
+## Designações originais das palavras: `augment`
+
+- O algoritmo LDA primeiro designa cada palavra em um documento para um tópico. Quanto mais palavras forem designadas para o mesmo tópico mais peso o parâmetro `gamma` terá na classificação do documento.
+
+- Uma análise possível é a comparação das classificações originais de cada par palavra-documento e encontrar quais palavras em cada documento foram designadas para qual tópico.  Para isso utilizamos a função `augment()` (pacote *broom*).
+
+```{r assignments}
+assignments <- augment(chapters_lda, data = chapters_dtm); assignments
+```
+
+## Designações originais das palavras: `augment`
+
+- Podemos agora combinar as designações originais (obtidas com `augment`) com as designações obtidas por consenso para cada para documento-palavra e determinar aquelas que foram classificadas incorretamente.
+
+```{r assignments2}
+assignments <- assignments %>%
+  separate(document, c("title", "chapter"), sep = "_", convert = TRUE) %>%
+  inner_join(book_topics, by = c(".topic" = "topic")); assignments
+```
+
+## Designações originais das palavras
+
+- Em seguida é possível comparar os pares e suas designações (originais x consenso) através de uma Matriz de Confusão (gráfico a seguir).
+
+```{r confusionmatrix, eval=FALSE, fig.width = 8.5, fig.height = 5.5}
+assignments %>%
+  count(title, consensus, wt = count) %>%
+  group_by(title) %>%
+  mutate(percent = n / sum(n)) %>%
+  ggplot(aes(consensus, title, fill = percent)) +
+  geom_tile() +
+  scale_fill_gradient2(high = "red", label = percent_format()) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+        panel.grid = element_blank()) +
+  labs(x = "Book words were assigned to",
+       y = "Book words came from",
+       fill = "% of assignments")
+```
+
+## Designações originais das palavras
+
+```{r confusionmatrix2, echo=FALSE, fig.width = 8.5, fig.height = 5.5}
+assignments %>%
+  count(title, consensus, wt = count) %>%
+  group_by(title) %>%
+  mutate(percent = n / sum(n)) %>%
+  ggplot(aes(consensus, title, fill = percent)) +
+  geom_tile() +
+  scale_fill_gradient2(high = "red", label = percent_format()) +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1),
+        panel.grid = element_blank()) +
+  labs(x = "Book words were assigned to",
+       y = "Book words came from",
+       fill = "% of assignments")
+```
+
+## Designações Originais Erradas
+
+```{r wrong_words}
+wrong_words <- assignments %>%
+  filter(title != consensus); wrong_words
+```
+
+## Designações Originais Erradas
+
+```{r wrong_words2}
+wrong_words %>%
+  count(title, consensus, term, wt = count) %>%
+  ungroup() %>%
+  arrange(desc(n))
+```
+

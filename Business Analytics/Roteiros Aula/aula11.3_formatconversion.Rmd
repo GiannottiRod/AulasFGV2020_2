@@ -1,0 +1,487 @@
+---
+title: "Text Mining"
+subtitle: "Conversão de/para formatos *tidy*"
+author: "Prof.Gustavo Mirapalheta"
+output:
+  ioslides_presentation:
+    incremental: no
+    mouse_click_enabled: yes
+    widescreen: yes
+    smaller: yes
+    df_print: tibble
+  beamer_presentation: default
+---
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(tidytext)
+library(dplyr)
+library(janeaustenr)
+library(gutenbergr)
+```
+
+## Conversão entre formatos *tidy* e não *tidy*
+
+* Nesta aula vamos analisar como converter entre formatos *tidy* e *Document-Term Matrix* e como ajustar ao formato *tidy* um objeto do tipo *Corpus* contendo metadados de documentos. Os pacotes utilizados serão o *tm* e o *quanteda*.
+
+```{r tidyflowchartch5, echo = FALSE, out.width = '60%', fig.align='center', fig.cap = "Text analysis combinando o formato tidytext com os pacotes *tm* e *quanteda*."}
+knitr::include_graphics("../imagens/tidyflow-ch-5.png")
+```
+
+## Tidying a document-term matrix {#tidy-dtm}
+
+- Uma das estruturas de dados mais comuns em text mining é a [document-term matrix](https://en.wikipedia.org/wiki/Document-term_matrix) (ou DTM). A DTM é uma matriz onde:
+    - cada linha representa um documento (por ex.um livro ou um artigo)
+    - cada coluna representa um termo, e
+    - cada valor representa o número de vezes que o termo aparece no documento.
+
+- Para converter do formato *DTM* para o *tidy* e vice-versa utilize as funções: `tidy()` e `cast()`. A função `cast()` admite as seguintes variações:
+    - `cast_sparse()`: converte para matrizes esparsas do pacote Matrix
+    - `cast_dtm()`: converte para um objeto `DocumentTermMatrix` do pacote *tm*
+    - `cast_dfm()`: converte para um objeto `dfm` do pacote *quanteda*
+    
+## Exemplos de transformação de objetos DTM
+
+- Vamos trabalhar com a coleção de artigos de jornal da Associated Press, a qual esta inclusa no pacote *topicmodels*. Observe que esta DTM é esparsa, sendo composta em 99% de zeros.
+
+```{r AssociatedPress, warning = FALSE, message = FALSE}
+library(tm)
+data("AssociatedPress", package = "topicmodels")
+AssociatedPress
+```
+    
+- Para acessar os termos nesta DTM, utilizamos `terms()`
+
+```{r}
+terms <- Terms(AssociatedPress); head(terms)
+```
+
+## Exemplo de transformação de objetos DTM
+
+- Para analisar este conjunto de dados vamos transforma-lo em um data frame com uma palavra por documento por linha, através do uso da função `tidy` do pacote *tidytext*, e em seguida realizar uma análise de sentimento tal como nos exemplos anteriores.
+
+```{r ap_td}
+library(dplyr)
+library(tidytext)
+
+ap_td <- tidy(AssociatedPress)
+ap_td
+```
+
+## Análise de sentimento em formato convertido de DTM para tidy
+
+```{r ap_sentiments}
+ap_sentiments <- ap_td %>%
+  inner_join(get_sentiments("bing"), by = c(term = "word"))
+
+ap_sentiments
+```
+
+## Análise de sentimento em formato convertido de DTM para tidy
+
+- A sequência abaixo fornece um gráfico com as palavras com a maior contribuição para os grupos positivo e negativo nos artigos da Associated Press, utilizando o diconário de sentimentos *Bing*.
+
+```{r apsentiments, eval=FALSE}
+library(ggplot2)
+
+ap_sentiments %>%
+  count(sentiment, term, wt = count) %>%
+  ungroup() %>%
+  filter(n >= 200) %>%
+  mutate(n = ifelse(sentiment == "negative", -n, n)) %>%
+  mutate(term = reorder(term, n)) %>%
+  ggplot(aes(term, n, fill = sentiment)) +
+  geom_bar(stat = "identity") +
+  ylab("Contribution to sentiment") +
+  coord_flip()
+```
+
+## Análise de sentimento em formato convertido de DTM para tidy
+
+```{r apsentiments2, echo=FALSE, fig.align="center"}
+library(ggplot2)
+
+ap_sentiments %>%
+  count(sentiment, term, wt = count) %>%
+  ungroup() %>%
+  filter(n >= 200) %>%
+  mutate(n = ifelse(sentiment == "negative", -n, n)) %>%
+  mutate(term = reorder(term, n)) %>%
+  ggplot(aes(term, n, fill = sentiment)) +
+  geom_bar(stat = "identity") +
+  ylab("Contribution to sentiment") +
+  coord_flip()
+```
+
+## Ajustando objetos *dfm*
+
+- Uma implementação similar é a *document-feature matrix* (dfm) do pacote *quanteda*. Este pacote contém o corpus dos discursos inaugurais dos presidentes americanos.
+
+```{r inaug_dfm, message = FALSE}
+library(methods)
+
+data("data_corpus_inaugural", package = "quanteda")
+inaug_dfm <- quanteda::dfm(data_corpus_inaugural, verbose = FALSE); inaug_dfm
+```
+
+## Ajustando objetos *dfm*
+
+- Vamos converter o corpus dos discursos inaugurais dos presidentes americanos ao formato tidy (um token, por documento por linha)
+
+```{r inaug_td}
+inaug_td <- tidy(inaug_dfm); inaug_td
+```
+
+## Importância dos termos por discurso: TF-IDF
+- Vamos agora calcular o valor da estatística TF-IDF para cada par discurso-termo
+
+```{r presidents, fig.width = 8, fig.height = 8}
+inaug_tf_idf <- inaug_td %>%
+  bind_tf_idf(term, document, count) %>%
+  arrange(desc(tf_idf)); inaug_tf_idf
+```
+
+## Termos com maior TF-IDF em 4 discursos
+
+- A seguir apresentamos o código e depois o gráfico com as maiores TF-IDF para os discursos de 4 presidentes: Linconl, Rosevelt, Kennedy e Obama.
+
+```{r presidentspeeches, eval=FALSE}
+speeches <- c("1933-Roosevelt", "1861-Lincoln",
+              "1961-Kennedy", "2009-Obama")
+
+inaug_tf_idf %>%
+  filter(document %in% speeches) %>%
+  group_by(document) %>%
+  top_n(10, tf_idf) %>%
+  ungroup() %>%
+  mutate(term = reorder(term, tf_idf)) %>%
+  ggplot(aes(term, tf_idf, fill = document)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ document, scales = "free") +
+  coord_flip() +
+  labs(x = "",
+       y = "tf-idf")
+```
+
+## Termos com maior TF-IDF em 4 discursos
+
+```{r presidentspeeches2, fig.cap = "Observe que o tokenizador do pacote *quanteda* considera o ponto de interrogação como um termo.", fig.height=5, fig.width=6, echo=FALSE, fig.align="center"}
+speeches <- c("1933-Roosevelt", "1861-Lincoln",
+              "1961-Kennedy", "2009-Obama")
+
+inaug_tf_idf %>%
+  filter(document %in% speeches) %>%
+  group_by(document) %>%
+  top_n(10, tf_idf) %>%
+  ungroup() %>%
+  mutate(term = reorder(term, tf_idf)) %>%
+  ggplot(aes(term, tf_idf, fill = document)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ document, scales = "free") +
+  coord_flip() +
+  labs(x = "",
+       y = "tf-idf")
+```
+
+## Número de termos por ano
+
+- Observe o uso da função `complete()`para incluir os zeros
+
+```{r year_term_counts}
+library(tidyr)
+
+year_term_counts <- inaug_td %>%
+  extract(document, "year", "(\\d+)", convert = TRUE) %>%
+  complete(year, term, fill = list(count = 0)) %>%
+  group_by(year) %>%
+  mutate(year_total = sum(count))
+```
+
+## Evolução de 6 termos ao longo do tempo
+
+- Os comandos para geração do gráfico do próximo slide podem ser vistos  abaixo.
+
+```{r yearterm, eval=FALSE, echo=TRUE}
+year_term_counts %>%
+  filter(term %in% c("god", "america", "foreign", "union", "constitution", "freedom")) %>%
+  ggplot(aes(year, count / year_total)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~ term, scales = "free_y") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  ylab("% frequency of word in inaugural address")
+```
+
+## Evolução de 6 termos ao longo do tempo
+
+```{r yearterm2, eval=TRUE, echo=FALSE, message=FALSE, fig.align="center", fig.height=5.5, fig.width=9}
+year_term_counts %>%
+  filter(term %in% c("god", "america", "foreign", "union", "constitution", "freedom")) %>%
+  ggplot(aes(year, count / year_total)) +
+  geom_point() +
+  geom_smooth() +
+  facet_wrap(~ term, scales = "free_y") +
+  scale_y_continuous(labels = scales::percent_format()) +
+  ylab("% frequency of word in inaugural address")
+```
+
+## Conversão de tidy para DTM
+
+- Neste exemplo partimos dos dados ajustados da Associated Press (dataframe *ap_td*) e o transformamos de volta para uma *dtm* (document-term matrix)
+
+```{r}
+ap_td %>%
+  cast_dtm(document, term, count)
+```
+
+## Conversão de tidy para dfm
+
+- De maneira similar poderíamos transformar o dataframe *ap_td* para o formato *dfm* (document-feature matrix)
+
+```{r chunk1, warning=FALSE, message=FALSE}
+ap_td %>%
+  cast_dfm(term, document, count)
+```
+
+## Conversão para o formato Matriz Esparsa
+
+```{r message=FALSE, warning=FALSE}
+library(Matrix)
+
+# cast into a Matrix object
+m <- ap_td %>%
+  cast_sparse(document, term, count)
+
+class(m)
+dim(m)
+```
+
+## Gerando um DTM para Jane Austen
+
+```{r austen_dtm, warning=FALSE, message=FALSE}
+library(janeaustenr)
+
+austen_dtm <- austen_books() %>%
+  unnest_tokens(word, text) %>%
+  count(book, word) %>%
+  cast_dtm(book, word, n)
+
+austen_dtm
+```
+
+## Ajuste de Objetos *Corpus* com Metadata
+
+- O pacote *tm* contém o corpus *acq* com 50 artigos do serviço de notícias Reuters. Estes artigos vem com metadata (informações sobre os próprios artigos), no formato de listas. 
+
+```{r acq}
+data("acq")
+acq
+
+# first document
+acq[[1]]
+```
+
+## Ajuste de Objetos *Corpus* com Metadata
+
+- O ajuste pode ser feito pela função `tidy()`, a qual irá transformar cada valor dos metadados em uma coluna no dataframe resultante.
+
+```{r acq_td}
+acq_td <- tidy(acq)
+acq_td
+```
+
+## Palavras mais comuns nos artigos da Reuters
+
+- Uma vez no formato *tidy* podemos calcular as palavras mais usadas no conjunto dos 50 artigos
+
+```{r acq_tokens}
+acq_tokens <- acq_td %>%
+  select(-places) %>%
+  unnest_tokens(word, text) %>%
+  anti_join(stop_words, by = "word")
+
+acq_tokens %>%
+  count(word, sort = TRUE)
+```
+
+## Palavras mais importantes: Reuters
+
+- De maneira similar pode-se calcular a estatística TF-IDF para as palavras no conjunto dos artigos
+
+```{r acq_tokens2}
+acq_tokens %>%
+  count(id, word) %>%
+  bind_tf_idf(word, id, n) %>%
+  arrange(desc(tf_idf))
+```
+
+## Exemplo: Mineração em Notícias Financeiras
+
+- Vamos agora nos conectar a um serviço de notícias (Yahoo Finance) e baixar os mais recentes artigos para as empresas Microsoft, Apple, Google, Amazon, Facebook, Twitter, IBM, Yahoo e Netflix e efetuar as análises de contagem de palavras e TF-IDF nos mesmos.
+
+```{r stock_articles_run, eval = FALSE}
+library(tm.plugin.webmining)
+library(purrr)
+
+company <- c("Microsoft", "Apple", "Google", "Amazon", "Facebook", "Twitter", "IBM", "Yahoo", "Netflix")
+symbol <- c("MSFT", "AAPL", "GOOG", "AMZN", "FB", "TWTR", "IBM", "YHOO", "NFLX")
+exchange <- c("NASDAQ", "NASDAQ", "NASDAQ", "NASDAQ", "NASDAQ", "NYSE", "NYSE", "NASDAQ", "NASDAQ")
+
+download_articles <- function(symbol){
+  Webcorpus(YahooFinanceSource(symbol))
+}
+
+stock_articles2 <- data_frame(company = company,
+                              symbol = symbol,
+                              exchange = exchange) %>%
+  mutate(corpus = map(symbol, download_articles))
+```
+
+## Exemplo: Mineração em Notícias Financeiras
+
+- Como pode ser visto abaixo, cada elemento na coluna *corpus* do dataframe *stock_articles2* é um objeto do tipo *WebCorpus*.
+
+```{r echo=FALSE}
+load("../dados/silge/stock2.data")
+```
+
+```{r}
+stock_articles2
+```
+
+## Exemplo: Mineração em Notícias Financeiras
+
+- Os objetos *WebCorpus* são um caso especial dos objetos corpus, tais como `acq`. Vamos então ajusta-lo com `tidy()`, desmonta-lo com `unnest()` e em seguida tokenizar a coluna `text` dos artigos individuais usando `unnest_tokens()`.
+
+```{r stock_tokens}
+stock_tokens <- stock_articles2 %>%
+  unnest(map(corpus, tidy)) %>%
+  unnest_tokens(word, text) %>%
+  select(company, datetimestamp, word, id, heading); stock_tokens
+```
+
+## Exemplo: Mineração em Notícias Financeiras
+
+- Pode-se em seguida realizar uma análise TF-IDF nos artigos, divididos por empresa e apresentar o resultado em forma gráfica (nos slides a seguir)
+
+```{r}
+library(stringr)
+
+stock_tf_idf <- stock_tokens %>%
+  count(company, word) %>%
+  filter(!str_detect(word, "\\d+")) %>%
+  bind_tf_idf(word, company, n) %>%
+  arrange(-tf_idf); stock_tf_idf
+```
+
+## Exemplo: Mineração em Notícias Financeiras
+
+- Para apresentar as principais palavras (pela estatística TF-IDF), utilizam-se os seguintes comandos (gráfico a seguir):
+
+```{r stocktfidf, fig.height = 5.5, fig.width = 8, eval=FALSE}
+stock_tf_idf %>%
+  group_by(company) %>%
+  top_n(8, tf_idf) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, tf_idf)) %>%
+  ggplot(aes(word, tf_idf, fill = company)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ company, scales = "free") +
+  coord_flip() +
+  labs(x = "Word",
+       y = "tf-idf")
+```
+
+## Exemplo: Mineração em Notícias Financeiras
+
+```{r stocktfidf2, fig.height = 5.5, fig.width = 8.5, fig.align="center", eval=TRUE, echo=FALSE}
+stock_tf_idf %>%
+  group_by(company) %>%
+  top_n(8, tf_idf) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, tf_idf)) %>%
+  ggplot(aes(word, tf_idf, fill = company)) +
+  geom_col(show.legend = FALSE) +
+  facet_wrap(~ company, scales = "free") +
+  coord_flip() +
+  labs(x = "Word",
+       y = "tf-idf")
+```
+
+## Análise de sentimento em palavras financeiras
+
+- Vamos agora usar o dicionário *Loughran and McDonald Linancial Lexicon* para determinar as mais importantes palavras positivas e negativas em seis diferentes sentimentos nos artigos (gráfico é apresentado a seguir).
+
+```{r, eval=FALSE, echo=TRUE}
+stock_tokens %>%
+  count(word) %>%
+  inner_join(get_sentiments("loughran"), by = "word") %>%
+  group_by(sentiment) %>%
+  top_n(5, n) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(word, n)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~ sentiment, scales = "free") +
+  ylab("Frequency of this word in the recent financial articles")
+```
+
+## Análise de sentimento em palavras financeiras
+
+```{r, echo=FALSE, eval=TRUE, fig.width=8.5, fig.height=5.5, fig.align="center"}
+stock_tokens %>%
+  count(word) %>%
+  inner_join(get_sentiments("loughran"), by = "word") %>%
+  group_by(sentiment) %>%
+  top_n(5, n) %>%
+  ungroup() %>%
+  mutate(word = reorder(word, n)) %>%
+  ggplot(aes(word, n)) +
+  geom_col() +
+  coord_flip() +
+  facet_wrap(~ sentiment, scales = "free") +
+  ylab("Frequency of this word in the recent financial articles")
+```
+
+## Análise de sentimento em palavras financeiras
+
+- Podemos agora montar um dataframe no qual as linhas serão as empresas, as colunas as seis categorias de sentimento e os valores o número de palavras pertencentes a cada categoria de sentimento em cada uma das empresas.
+
+```{r}
+stock_sentiment_count <- stock_tokens %>%
+  inner_join(get_sentiments("loughran"), by = "word") %>%
+  count(sentiment, company) %>%
+  spread(sentiment, n, fill = 0)
+
+stock_sentiment_count
+```
+
+## Análise de sentimento em palavras financeiras
+
+- Por último podemos montar um gráfico com o sentimento líquido percentual para cada empresa, utilizando a fórmula: (positivo - negativo) / (positivo + negativo) para cada uma delas (gráfico a seguir).
+
+```{r stockpositivity, eval=FALSE, echo=TRUE}
+stock_sentiment_count %>%
+  mutate(score = (positive - negative) / (positive + negative)) %>%
+  mutate(company = reorder(company, score)) %>%
+  ggplot(aes(company, score, fill = score > 0)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  labs(x = "Company",
+       y = "Positivity score among 20 recent news articles")
+```
+
+## Análise de sentimento em palavras financeiras
+
+```{r stockpositivity2, eval=TRUE, echo=FALSE, fig.width=8.5, fig.height=5.5, fig.align="center"}
+stock_sentiment_count %>%
+  mutate(score = (positive - negative) / (positive + negative)) %>%
+  mutate(company = reorder(company, score)) %>%
+  ggplot(aes(company, score, fill = score > 0)) +
+  geom_col(show.legend = FALSE) +
+  coord_flip() +
+  labs(x = "Company",
+       y = "Positivity score among 20 recent news articles")
+```

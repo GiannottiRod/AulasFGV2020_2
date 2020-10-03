@@ -1,0 +1,141 @@
+---
+title: "Case Financials at Carco"
+author: "Caio Stabel & Rodrigo Giannotti"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(magrittr)
+library(readxl)
+```
+
+# Introdução
+
+You are the CFO for Carco, a small car rental company. 
+You are trying to get some idea of what Carco’s financial and income statements will look like during the fixed year (year 0) and the next five years.
+
+As variáveis e suas relações são listadas na primeira página do documento e serão criadas por tópico a seguir.
+
+## Variables that are fixed
+
+```{r}
+tax_rate <- 0.470
+dividend_rate <- 0.700
+retention_rate <- 0.300
+intrest_rate_old <- 0.105
+interest_rate_new <- 0.095
+repayment_rate <- 0.200
+```
+
+
+## Factors
+
+## Sales
+
+```{r}
+sales_factor <- c(0,0,0,0,0,0)
+sales_mean <- 1.10
+sales_sd <- 0.05
+
+sales <- c(1000,0,0,0,0,0)
+
+for (year in 2:6)) {
+  sales[year] <- sales[year] * sales[year]
+}
+```
+
+### Current Liabilities
+
+```{r}
+current_liabilities_factor <- c(0,0,0,0,0,0)
+current_liabilities_mean <- 0.08
+current_liabilities_sd <- 0.01
+
+current_liabilities <- c(0,0,0,0,0,0)
+
+for (year in 1:6)) {
+  current_liabilities[year] <- current_liabilities_factor[year] * sales[year]
+}
+```
+
+### Current Assets
+
+```{r}
+current_assets_factor <- c(0,0,0,0,0,0)
+current_assets_mean <- 0.15
+current_assets_sd <- 0.02
+
+current_assets <- c(0,0,0,0,0,0)
+
+for (year in 1:6)) {
+  current_assets[year] <- current_assets_factor[year] * sales[year]
+}
+```
+
+### Net Fixed Assets
+
+```{r}
+fixed_assets_factor
+fixed_assets_mean <- 0.77
+fixed_assets_sd <- 0.04
+
+fixed_assets <- c(0,0,0,0,0,0)
+
+for (year in 1:6)) {
+  fixed_assets[year] <- fixed_assets_factor[year] * sales[year]
+}
+```
+
+### Expense
+
+```{r}
+expense_factor
+expense_mean <- 0.80
+expense_sd <- 0.06
+
+expense <- c(0,0,0,0,0,0)
+
+for (year in 1:6)) {
+  expense[year] <- expense_factor[year] * sales[year]
+}
+```
+
+### Total Assets
+
+```{r}
+total_assets = fixed_assets + fixed_assets
+```
+
+### Depreciation
+
+```{r}
+depreciation <- c(0,0,0,0,0,0)
+
+acc_depreciation <- c(0,0,0,0,0,0)
+acc_depreciation[1] <- 330
+
+for (year in 2:6)) {
+  depreciation[year] <- acc_depreciation[year - 1] + (0.1 * fixed_assets_at_cost[year - 1])
+  acc_depreciation[year] <- acc_depreciation[year - 1] + depreciation[year]
+}
+```
+
+### Fixed Assets at Cost
+
+```{r}
+for (year in 1:6)) {
+  fixed_assets_at_cost[year] <- depreciation[year] + fixed_assets[year]
+}
+```
+
+
+
+
+
+
+
+
+

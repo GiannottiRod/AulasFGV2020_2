@@ -1,7 +1,9 @@
 ---
 title: "Exercícios Cap 05"
 author: "Rodrigo Giannotti"
-output: pdf_document
+output: 
+  pdf_document:
+    df_print: tibble
 ---
 
 ```{r setup, include=FALSE}
@@ -549,11 +551,14 @@ Por mais que realmente existam menos voos marcados durante fins de semana parece
 Which carrier has the worst delays? Challenge: can you disentangle the effects of bad airports vs. bad carriers? Why/why not? (Hint: think about flights %>% group_by(carrier, dest) %>% summarise(n()))
 \par
 Para essa Análise me parece o mais razoável analizar somente o arr_delay, visto que por mais chato que seja ficar aguardando no aeroporto no final o que mais importa é se o avião chega ao seu destino final no horário, para os passageiros.
-```{r, fig.height= 6}
+```{r, fig.height= 5}
 not_cancelled %>% 
   group_by(carrier) %>% 
   summarise(sum_delays = sum(arr_delay), .groups = 'drop') %>% 
-  ggplot(mapping = aes(x = reorder(carrier, X = sum_delays), y = sum_delays, fill = sum_delays)) +
+  ggplot(mapping = 
+           aes(x = reorder(carrier, X = sum_delays), 
+               y = sum_delays, 
+               fill = sum_delays)) +
   geom_col() +
   coord_flip() +
   scale_fill_gradient(low="green", high="red") + 
@@ -568,7 +573,10 @@ Feitas essas considerações seguimos com o exercício.
 not_cancelled %>% 
   group_by(origin) %>% 
   summarise(sum_delays = sum(arr_delay), .groups = 'drop') %>% 
-  ggplot(mapping = aes(x = reorder(origin, X = sum_delays), y = sum_delays, fill = sum_delays)) +
+  ggplot(mapping = 
+           aes(x = reorder(origin, X = sum_delays), 
+               y = sum_delays, 
+               fill = sum_delays)) +
   geom_col() +
   coord_flip() +
   scale_fill_gradient(low="green", high="red") + 

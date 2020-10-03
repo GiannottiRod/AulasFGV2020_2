@@ -1,7 +1,9 @@
 ---
 title: "Exercícios Cap 03"
 author: "Rodrigo Giannotti"
-output: pdf_document
+output:
+  pdf_document:
+    df_print: tibble
 ---
 
 ```{r setup, include=FALSE}
