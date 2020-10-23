@@ -346,5 +346,8 @@ hist(OBJETO$scores,breaks = 1000)
 length(OBJETO$scores[OBJETO$scores>0.5])/length(OBJETO$scores)
 ```
 
+```{r}
+OBJETO$model
+```
 
 
