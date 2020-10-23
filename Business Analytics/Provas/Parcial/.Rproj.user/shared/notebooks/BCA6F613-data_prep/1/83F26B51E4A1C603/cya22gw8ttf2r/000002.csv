@@ -1,0 +1,5 @@
+"0","tb_loan %<>% mutate(date = ymd(date + 19000000))"
+"0","tb_loan %<>% rename(loan_date = date)"
+"0","tb_loan %<>% rename(loan_amount = amount)"
+"0","tb_loan %<>% rename(loan_duration = duration)"
+"0","tb_loan %<>% rename(loan_payments = payments)"

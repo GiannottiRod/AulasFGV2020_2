@@ -1,0 +1,6 @@
+"0","tb_district %<>% mutate(district_crimes95 = ifelse(district_crimes95 == '?', as.double(NULL), as.double(district_crimes95)))
+"
+"2","Problem with `mutate()` input `district_crimes95`.
+[34mi[39m NAs introduced by coercion
+[34mi[39m Input `district_crimes95` is `ifelse(district_crimes95 == ""?"", as.double(NULL), as.double(district_crimes95))`."
+"2","NAs introduced by coercion"

@@ -1,0 +1,2 @@
+"0","tb_district %<>% mutate(unemployment_avg = (district_unemployment95 + district_unemployment96) / 2)"
+"0","tb_district %<>% mutate(crimes_avg = (district_crimes95 + district_crimes96) / 2)"

@@ -1,0 +1,3 @@
+"0",""
+"0","ggplot() + "
+"0","  geom_point(data = mpg, mapping = aes(x = displ, y = hwy, fill = drv, stroke = 3), color = ""white"" , shape = 21)"

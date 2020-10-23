@@ -1,0 +1,32 @@
+{
+    "id": "EBF5472E",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1603414574326.0,
+    "source_on_save": false,
+    "relative_order": 8,
+    "properties": {
+        "expression": "tb_loan",
+        "caption": "tb_loan",
+        "totalObservations": 682,
+        "displayedObservations": 682,
+        "variables": 7,
+        "cacheKey": "1FE58957",
+        "object": "tb_loan",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=tb_loan&cache_key=1FE58957&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 3199092244751596066,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1603414574326,
+    "read_only": false,
+    "read_only_alternatives": []
+}

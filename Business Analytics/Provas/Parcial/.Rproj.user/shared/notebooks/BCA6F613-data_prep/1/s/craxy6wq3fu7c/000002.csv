@@ -1,0 +1,9 @@
+"0","tb_card <- read_delim(table_paths[2], delim = ';')"
+"2","Parsed with column specification:
+cols(
+  card_id = [32mcol_double()[39m,
+  disp_id = [32mcol_double()[39m,
+  type = [31mcol_character()[39m,
+  issued = [31mcol_character()[39m
+)
+"

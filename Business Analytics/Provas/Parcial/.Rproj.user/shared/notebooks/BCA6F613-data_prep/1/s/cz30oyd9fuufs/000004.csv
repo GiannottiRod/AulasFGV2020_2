@@ -1,0 +1,6 @@
+"0","tb_trans %<>% rename(trans_date = date)"
+"0","tb_trans %<>% mutate(trans_date = ymd(trans_date  + 19000000))"
+"0","tb_trans %<>% rename(trans_bank = bank)"
+"0","tb_trans %<>% rename(trans_account = account)"
+"0","tb_trans %<>% rename(trans_amount = amount)"
+"0","tb_trans %<>% rename(trans_balance = balance)"

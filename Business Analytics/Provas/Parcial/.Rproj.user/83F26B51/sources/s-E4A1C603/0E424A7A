@@ -1,0 +1,32 @@
+{
+    "id": "0E424A7A",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1603413649945.0,
+    "source_on_save": false,
+    "relative_order": 5,
+    "properties": {
+        "expression": "tb_district",
+        "caption": "tb_district",
+        "totalObservations": 77,
+        "displayedObservations": 77,
+        "variables": 16,
+        "cacheKey": "0D78A9B7",
+        "object": "tb_district",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=tb_district&cache_key=0D78A9B7&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 2300022481128,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1603413649945,
+    "read_only": false,
+    "read_only_alternatives": []
+}

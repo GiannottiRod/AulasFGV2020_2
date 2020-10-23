@@ -1,0 +1,194 @@
+#Andr? Yuki, Caio Stabel, Carlos Dainez, Mathias Kolde e Thiago Borges
+
+
+
+library(tidyverse)
+
+#Tabela Loan
+
+loan_codes<-loan%>%
+  left_join(subset(disp,type=="OWNER"),by="account_id")%>%
+  select(-type)
+
+loan_codes<-model.matrix(~.,data=loan_codes)%>%
+  as_tibble()%>%
+  mutate(statusA=ifelse(statusB+statusC+statusD==0,1,0))
+
+loans_per_person<-loan_codes%>%
+  group_by(account_id,client_id,disp_id)%>%
+  summarise(n_of_loans=n(),loan_amount=sum(amount),average_loan_amount=mean(amount),loans_A=sum(statusA),loans_B=sum(statusB),loans_C=sum(statusC),loans_D=sum(statusD),avg_loan_payment=mean(payments),amount_loan_default=sum(statusB*amount),amount_loan_late=sum(statusD*amount),avg_loan_duration=mean(duration))
+
+#Tabela Payment Order
+
+order_codes<-order%>%
+  left_join(subset(disp,type=="OWNER"),by="account_id")%>%
+  select(-type,-bank_to)
+
+order_codes<-model.matrix(~.,data=order_codes)%>%
+  as_tibble()%>%
+  mutate(Other=ifelse(k_symbolLEASING+k_symbolPOJISTNE+k_symbolSIPO+k_symbolUVER==0,1,0))
+
+order_per_person<-order_codes%>%
+  group_by(client_id)%>%
+  summarise(n_of_orders=n(),total_order_amount=sum(amount),average_order_amount=mean(amount),n_leasing=sum(k_symbolLEASING),n_insurance=sum(k_symbolPOJISTNE),n_household=sum(k_symbolSIPO),n_loan=sum(k_symbolUVER),n_Other=sum(Other),amount_leasing=sum(k_symbolLEASING*amount),amount_insurance=sum(k_symbolPOJISTNE*amount),amount_housing=sum(k_symbolSIPO*amount),amount_loan=sum(k_symbolUVER*amount),amount_other=sum(Other*amount))
+
+
+# Tabela Clients
+
+client_codes<-client%>%
+  left_join(disp,by="client_id")
+
+client_codes<-client_codes%>%
+  left_join(card,by="disp_id")
+
+district_fix<-district[-1,]
+district_fix[,c(1,4:16)]<-sapply(district_fix[,c(1,4:16)],as.integer)
+district_fix$V2=as.factor(district_fix$V2)
+district_fix$V3=as.factor(district_fix$V3)
+
+client_total<-client_codes%>%
+  left_join(district_fix,c("district_id"="V1"))
+client_total<-client_total[,-c(2:5,9)]
+
+# Tabela Transactions
+
+join<-disp%>%
+  filter(type=="OWNER")%>%
+  select(account_id,client_id)
+
+trx_codes<-trans%>%
+  left_join(join,by="account_id")
+
+trx<-trx_codes%>%
+  mutate(trx_type=ifelse(type=="PRIJEM",1,-1))%>%
+  select(client_id,trx_type,amount,balance,k_symbol,operation)
+trx$amount=trx$amount*trx$trx_type
+
+
+
+library(plyr)
+trx$k_symbol<-revalue(trx$k_symbol,c("POJISTNE"="insurance","SLUZBY"="statement","UROK"="interest","SANKC. UROK"="sanc_interest","SIPO"="household","DUCHOD"="pension","UVER"="loan"))
+trx$operation<-revalue(trx$operation,c("VYBER KARTOU"="cc_withdraw","VKLAD"="credit_cash","PREVOD Z UCTU"="collection","VYBER"="cash_withdraw","PREVOD NA UCET"="remittance"))
+
+detach(package:plyr)
+
+trx<-model.matrix(~.,data=trx)%>%
+  as_tibble()
+trx=trx[,-c(1,6)]
+trx<-trx%>% 
+  mutate(k_symbolother=ifelse(k_symbolinterest+k_symbolsanc_interest+k_symbolloan+k_symbolstatement+k_symbolinsurance+k_symbolhousehold+k_symbolloan==0,1,0))
+
+trx_per_person<-trx%>%
+  group_by(client_id)%>%
+  summarise(n_of_trx=n(),total_trx_amount=sum(amount),average_trx_amount=mean(amount),
+            total_trx_balance=sum(balance),n_cc_withdrawal=sum(operationcc_withdraw),
+            amount_cc_withdrawal=sum(amount*operationcc_withdraw),
+            n_credit_in_cash=sum(operationcredit_cash),amount_credit_in_cash=sum(amount*operationcredit_cash),
+            n_collection=sum(operationcollection),amount_collection=sum(amount*operationcollection),
+            n_cash_withdrawal=sum(operationcash_withdraw),amount_cash_withdrawal=sum(operationcash_withdraw*amount),
+            n_remittance=sum(operationremittance), amout_remittance=sum(operationremittance*amount),
+            n_trx_insurance=sum(k_symbolinsurance),n_household=sum(k_symbolhousehold),
+            n_trx_loan=sum(k_symbolloan),n_Other=sum(k_symbolother),
+            amount_trx_insurance=sum(k_symbolinsurance*amount),
+            amount_trx_housing=sum(k_symbolhousehold*amount),
+            amount_trx_loan=sum(k_symbolloan*amount),
+            amount_trx_other=sum(k_symbolother*amount),
+            n_trx_statement=sum(k_symbolstatement), amount_trx_statement=sum(amount*k_symbolstatement),
+            n_trx_interest=sum(k_symbolinterest),amount_trx_interest=sum(amount*k_symbolinterest),
+            n_trx_sanc_int=sum(k_symbolsanc_interest),amount_sanc_int=sum(amount*k_symbolsanc_interest),
+            n_pension=sum(k_symbolpension),amount_pension=sum(amount*k_symbolpension),debts=sum(ifelse(trx_type==-1,amount,0)),
+            gains=sum(ifelse(trx_type==1,amount,0)))
+
+#Tabela clientes + transa??es
+
+client_total$client_id=as.numeric(client_total$client_id)
+clients_trx<-client_total%>%
+  left_join(trx_per_person,by="client_id")%>%
+  mutate(tem_cartao=ifelse(card_id>0,1,0))
+clients_trx[is.na(clients_trx)]<-0
+
+#Vamos tentar fazer um modelo de aceita??o para cart?o de cr?dito
+#vai usar dados da tabela de clientes j? que s?o informa??es j? dispon?veis antes de ter uma conta e fazer transa??es
+
+modelo_cartao<-clients_trx[,-c(1:4,20:51)]
+modelo_cartao<-model.matrix(~.,modelo_cartao)
+modelo_cartao<-as.data.frame(modelo_cartao[,-1])
+
+peq=apply(modelo_cartao,2,min)
+grd=apply(modelo_cartao,2,max)
+
+modelo_cartao=scale(modelo_cartao,center=peq,scale=grd-peq)
+modelo_cartao<-as.data.frame(modelo_cartao)
+
+X=modelo_cartao[,-99]
+library(nnet)
+Y=class.ind(modelo_cartao$tem_cartao)
+head(Y,10)
+
+
+set.seed(2020)
+flag=sample(1:5369, 4500)
+Xlrn=X[flag,]; Xtst=X[-flag,]
+Ylrn=Y[flag,]; Ytst=Y[-flag,]
+Ylrn=as.data.frame(Ylrn)
+Ytst=as.data.frame(Ytst)  
+
+set.seed(2020)
+rn=nnet(Xlrn,Ylrn,size = 8, softmax = T, maxit = 2000)   
+p1=predict(rn,newdata = Xtst)
+p1=as.data.frame(p1)
+options(scipen = 999)
+head(p1)
+Ytst$paceito=p1[,2]  
+library(hmeasure)
+HMeasure(Ytst$`1`, p1[,2])$metrics #n?o ? um modelo muito bom
+
+
+#Continuando, vamos juntar mais tabelas
+
+#tabela clientes + transa??es + empr?stimos
+
+loans_per_person<-loans_per_person[,-c(1,3)]
+clients_trx_loan<-clients_trx%>%
+  left_join(loans_per_person,by="client_id")
+clients_trx_loan[is.na(clients_trx_loan)]<-0
+
+#tabela total
+
+total<-clients_trx_loan%>%
+  left_join(order_per_person,by="client_id")
+total[is.na(total)]<-0
+
+
+#Modelo de Risco de Emprestimo
+
+
+loan_base<-total[,-c(1:6)]
+loan_base<-loan_base%>%
+  filter(n_of_loans>0)%>%
+  mutate(risco_loan=loans_A)%>%
+  select(-loans_A,-loans_B,-loans_C,-loans_D)
+
+library(boot)
+mod1=glm(data = loan_base, risco_loan~.,family = binomial() )
+mod2=step(mod1)
+mod2
+set.seed(11) 
+cvglm=cv.glm(data =loan_base, glmfit = mod2, K = 1) 
+cvglm
+cv.glm(data = loan_base, glmfit = mod2)$delta[1] 
+#o erro estimado ? de s? 3.8%, logo temos 96.2% de precis?o para identificar bons pagadores
+
+pred<-predict(mod2,newdata= total ,type = "response")
+
+
+
+total$payer_score=pred
+total$pago=total$loans_A+total$loans_C
+total_l<-total%>%
+  filter(n_of_loans>0)
+table(ifelse(total_l$payer_score>=.5,1,0),total_l$pago)
+table(ifelse(total$payer_score>=.5,1,0),total$pago)
+# Existem v?rios clientes com potencial de ser bons pagadores e ainda sem empr?stimos, uma oportunidade boa pode ser tentar vender para esses p?blicos
+
+      

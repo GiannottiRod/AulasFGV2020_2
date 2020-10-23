@@ -1,0 +1,343 @@
+---
+title: "Preparando a base de dados"
+author: "Caio Stabel, Guilherme Sant'anna & Rodrigo Giannotti"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(magrittr)
+library(lubridate)
+```
+
+
+```{r}
+tables = c()
+  
+table_names <- c('account', 
+                 'card',
+                 'client',
+                 'disp',
+                 'district',
+                 'loan',
+                 'order',
+                 'trans')
+
+folder <- 'czech_data'
+
+i = 1
+table_paths = c()
+
+for (item in table_names) {
+  table_paths[i] <-  paste0(folder, '/', item, '.asc')
+  i = i+1
+} 
+
+```
+
+# Data prep
+
+Antes de qualquer trabalho poder ser feito primeiro precisamos nos certificar que as tabelas sejam corretamente lidas pelo R e que as variáveis estejam em tipos não só coerentes como compreensíveis i.e. não em tcheco. Isso será feito neste script. A falta de comentários se da pois tudo o que está sendo feito segue as premissas dadas nas instruções.
+
+\newpage
+## TB_ACCOUNT
+
+```{r, echo = FALSE}
+tb_account <- read_delim(table_paths[1], delim = ';')
+```
+
+
+```{r}
+tb_account %<>% mutate(date = ymd(date  + 19000000))
+tb_account %<>% rename(account_open_date = date)
+```
+
+### Frequency
+
+```{r}
+tb_account %<>% mutate(frequency = if_else(
+  frequency == "POPLATEK MESICNE",'monthly',if_else(
+    frequency == "POPLATEK TYDNE",'weekly','transaction'
+    )))
+```
+
+```{r, echo = FALSE}
+tb_account %>% head()
+```
+
+\newpage
+## TB_CLIENT
+
+```{r, echo = FALSE}
+tb_client <- read_delim(table_paths[3], delim = ';')
+```
+
+### Sex / Birth Date
+
+```{r}
+tb_client %<>%  mutate(sex = ifelse(
+  (birth_number %% 10000) >= 5000, 'F', 'M'
+  ), birth_number = ifelse(
+  (birth_number %% 10000) >= 5000, birth_number - 5000, birth_number
+  ),
+  birth_date = ymd(birth_number + 19000000))
+```
+
+```{r}
+tb_client %>% head()
+```
+
+\newpage
+## TB_DISP
+
+```{r, echo = FALSE}
+tb_disp <- read_delim(table_paths[4], delim = ';')
+```
+
+```{r}
+tb_disp %<>% rename(disp_type = type)
+```
+
+```{r, echo = FALSE}
+tb_disp %>% head()
+```
+
+\newpage
+## TB_ORDER
+
+```{r, echo = FALSE}
+tb_order <- read_delim(table_paths[7], delim = ';')
+```
+
+```{r}
+tb_order %<>% rename(order_bank = bank_to)
+tb_order %<>% rename(order_account_to = account_to)
+tb_order %<>% rename(order_amount = amount)
+```
+
+### K_symbol
+
+```{r}
+tb_order %<>% mutate(k_symbol = if_else(
+  k_symbol == "POJISTNE", 'insurrance payment', if_else(
+  k_symbol == "SIPO", 'household payment', if_else(
+  k_symbol == "LEASING", 'leasing payment', if_else(
+  k_symbol == "UVER", 'loan payment', 
+  'not informed' 
+)))))
+
+tb_order %<>% rename(order_k_symbol = k_symbol)
+```
+
+```{r, echo = FALSE}
+tb_order %>% head()
+```
+
+\newpage
+## TB_TRANSACTION
+
+```{r, echo = FALSE}
+tb_trans <- read_delim(table_paths[8], delim = ';')
+```
+
+```{r}
+tb_trans %<>% rename(trans_date = date)
+tb_trans %<>% mutate(trans_date = ymd(trans_date  + 19000000))
+tb_trans %<>% rename(trans_bank = bank)
+tb_trans %<>% rename(trans_account = account)
+tb_trans %<>% rename(trans_amount = amount)
+tb_trans %<>% rename(trans_balance = balance)
+```
+
+### Type
+
+```{r}
+tb_trans %<>% mutate(type = if_else(
+ type == "PRIJEM", 'credit', if_else(
+ type == "VYDAJ",'withdrawal',
+ NULL
+)))
+
+tb_trans %<>% rename(trans_type = type)
+```
+
+### Operation
+
+```{r}
+tb_trans %<>% mutate(operation = if_else(
+  operation == "VYBER KARTOU", 'credit withdrawal', if_else(
+  operation == "VKLAD", 'credit cash', if_else(
+  operation == "PREVOD Z UCTU", 'collection', if_else(
+  operation == "VYBER", 'withdrawal', if_else(
+  operation == "PREVOD NA UCET", 'remittance', 
+  NULL 
+))))))
+
+tb_trans %<>% rename(trans_operation = operation)
+```
+
+### K_symbol
+
+```{r}
+tb_trans %<>% mutate(k_symbol = if_else(
+  k_symbol == "POJISTNE", 'insurrance payment', if_else(
+  k_symbol == "SLUZBY", 'statement payment', if_else(
+  k_symbol == "UROK", 'interest credited', if_else(
+  k_symbol == "SANKC. UROK", 'sanction interest', if_else(
+  k_symbol == "SIPO", 'household', if_else(
+  k_symbol == "DUCHOD", 'pension', if_else(
+  k_symbol == "UVER", 'loan payment', 
+  'not informed'
+))))))))
+
+tb_trans %<>% rename(trans_k_symbol = k_symbol)
+```
+
+```{r, echo = FALSE}
+tb_trans %>% head()
+```
+
+\newpage
+## TB_LOAN
+
+```{r, echo = FALSE}
+tb_loan <- read_delim(table_paths[6], delim = ';')
+```
+
+```{r}
+tb_loan %<>% mutate(date = ymd(date + 19000000))
+tb_loan %<>% rename(loan_date = date)
+tb_loan %<>% rename(loan_amount = amount)
+tb_loan %<>% rename(loan_duration = duration)
+tb_loan %<>% rename(loan_payments = payments)
+```
+
+### Status
+
+```{r}
+tb_loan %<>% mutate(loan_status_desc = if_else(
+  status == "A", 'no problems', if_else(
+  status == "B", 'not payed', if_else(
+  status == "C", 'OK so far', if_else(
+  status == "D", 'client in debt', 
+  NULL 
+)))))
+
+tb_loan %<>% rename(loan_status = status)
+```
+
+```{r, echo = FALSE}
+tb_loan %>% head()
+```
+
+\newpage
+## TB_CARD
+
+```{r, echo = FALSE}
+tb_card <- read_delim(table_paths[2], delim = ';')
+```
+
+```{r}
+tb_card %<>% mutate(issued = as_date(ymd_hms(issued)))
+tb_card %<>% rename(card_issue_date = issued)
+```
+
+```{r, echo = FALSE}
+tb_card %>% head()
+```
+
+\newpage
+## TB_DISTRICT
+
+```{r, echo = FALSE}
+tb_district <- read_delim(table_paths[5], delim = ';')
+```
+
+### Column names
+
+```{r}
+new_names <- c(
+  'district_id',
+  'district_name',
+  'district_region',
+  'district_inhabitants',
+  'district_s_cities',
+  'district_m_cities',
+  'district_g_cities',
+  'district_gg_cities',
+  'district_ncities',
+  'district_urban_rate',
+  'district_avg_sal',
+  'district_unemployment95',
+  'district_unemployment96',
+  'district_entrepeneur_rate',
+  'district_crimes95',
+  'district_crimes96'
+)
+
+colnames(tb_district) <- new_names
+
+tb_district %<>% mutate(district_unemployment95 = ifelse(district_unemployment95 == '?', as.double(NULL), as.double(district_unemployment95)))
+tb_district %<>% mutate(district_crimes95 = ifelse(district_crimes95 == '?', as.double(NULL), as.double(district_crimes95)))
+```
+
+
+```{r, echo = FALSE}
+tb_district %>% head()
+```
+
+# Data Wrangling
+
+Precisamos transformar algumas dessas colunas em informações mais úteis. Para isso, por exemplo vamos agregar informações de outras tabelas aos dados dos clientes e também criar novas colunas a partir das que já possuimos.
+
+## TB_DISTRICT
+
+Nessa tabela precisamos agregar os dados das colunas históricas numa média para podermos ter um número mais interessante e único, já que as diferenças de um ano para o outro pouco nos importam.
+
+```{r}
+tb_district %<>% mutate(unemployment_avg = (district_unemployment95 + district_unemployment96) / 2)
+tb_district %<>% mutate(crimes_avg = (district_crimes95 + district_crimes96) / 2)
+```
+
+
+
+
+# Joins
+
+Nosso objetivo agora é preparar a base de dados para os modelos. Para isso vamos separar uma tabela à esquerda com todas as nossas transações e a partir dessas usar left joins para ir agregando informações
+
+```{r}
+tb_final <- left_join(x = tb_trans, y =   left_join(x = tb_account, y = tb_district, by = "district_id") %>% 
+  left_join(y = tb_disp, by = 'account_id') %>% 
+  left_join(y= tb_client, by = 'client_id' ), by = 'account_id')
+```
+
+# Isolation forest
+
+```{r}
+#install.packages('isotree')
+#library(isotree)
+tb_final_train <- sample_frac(tb_final, 0.8)
+tb_final_train <- tb_final - tb_final_test
+
+
+```
+
+
+```{r}
+tb_final_train %>% isolation.forest(
+  ntrees = 5000,
+  ndim = 8,
+  max_depth = ceiling(log2(1056320)),
+  weigh_by_kurtosis = T,
+  min_imp_obs = 3,
+  output_score = T,
+  square_dist = F,
+  random_seed = 42,
+)
+```
+
+
+
+

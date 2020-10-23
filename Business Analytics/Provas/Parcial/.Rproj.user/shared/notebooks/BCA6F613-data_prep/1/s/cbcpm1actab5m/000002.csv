@@ -1,0 +1,9 @@
+"0","tb_account <- read_delim(table_paths[1], delim = ';')"
+"2","Parsed with column specification:
+cols(
+  account_id = [32mcol_double()[39m,
+  district_id = [32mcol_double()[39m,
+  frequency = [31mcol_character()[39m,
+  date = [32mcol_double()[39m
+)
+"

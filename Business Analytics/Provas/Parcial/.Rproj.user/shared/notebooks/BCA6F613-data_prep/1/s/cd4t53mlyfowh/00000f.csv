@@ -1,0 +1,8 @@
+"0","tb_client <- read_delim(table_paths[3], delim = ';')"
+"2","Parsed with column specification:
+cols(
+  client_id = [32mcol_double()[39m,
+  birth_number = [32mcol_double()[39m,
+  district_id = [32mcol_double()[39m
+)
+"

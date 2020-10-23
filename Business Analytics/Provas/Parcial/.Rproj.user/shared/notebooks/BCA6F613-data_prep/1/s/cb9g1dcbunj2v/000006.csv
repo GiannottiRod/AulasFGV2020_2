@@ -1,0 +1,2 @@
+"0","tb_card %<>% mutate(issued = as_date(ymd_hms(issued)))"
+"0","tb_card %<>% rename(card_issue_date = issued)"

@@ -1,0 +1,22 @@
+"0","tb_district <- read_delim(table_paths[5], delim = ';')
+"
+"2","Parsed with column specification:
+cols(
+  A1 = [32mcol_double()[39m,
+  A2 = [31mcol_character()[39m,
+  A3 = [31mcol_character()[39m,
+  A4 = [32mcol_double()[39m,
+  A5 = [32mcol_double()[39m,
+  A6 = [32mcol_double()[39m,
+  A7 = [32mcol_double()[39m,
+  A8 = [32mcol_double()[39m,
+  A9 = [32mcol_double()[39m,
+  A10 = [32mcol_double()[39m,
+  A11 = [32mcol_double()[39m,
+  A12 = [31mcol_character()[39m,
+  A13 = [32mcol_double()[39m,
+  A14 = [32mcol_double()[39m,
+  A15 = [31mcol_character()[39m,
+  A16 = [32mcol_double()[39m
+)
+"

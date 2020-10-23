@@ -1,0 +1,32 @@
+{
+    "id": "C4F7ADE3",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1602523512757.0,
+    "source_on_save": false,
+    "relative_order": 2,
+    "properties": {
+        "expression": "tb_trans",
+        "caption": "tb_trans",
+        "totalObservations": 1056320,
+        "displayedObservations": 1056320,
+        "variables": 10,
+        "cacheKey": "EF87E143",
+        "object": "tb_trans",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=tb_trans&cache_key=EF87E143&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8390884934534832160,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1602523512757,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -1,0 +1,7 @@
+"0","tb_trans %<>% mutate(type = if_else("
+"0"," type == ""PRIJEM"", 'credit', if_else("
+"0"," type == ""VYDAJ"",'withdrawal',"
+"0"," NULL"
+"0",")))"
+"0",""
+"0","tb_trans %<>% rename(trans_type = type)"

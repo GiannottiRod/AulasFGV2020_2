@@ -1,0 +1,32 @@
+{
+    "id": "4494F660",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1603414106728.0,
+    "source_on_save": false,
+    "relative_order": 6,
+    "properties": {
+        "expression": "tb_client",
+        "caption": "tb_client",
+        "totalObservations": 5369,
+        "displayedObservations": 5369,
+        "variables": 5,
+        "cacheKey": "D3FD625D",
+        "object": "tb_client",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=tb_client&cache_key=D3FD625D&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 1602524999,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1603414106728,
+    "read_only": false,
+    "read_only_alternatives": []
+}

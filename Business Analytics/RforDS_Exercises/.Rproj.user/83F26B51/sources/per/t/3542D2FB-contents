@@ -20,11 +20,6 @@ library(tidyverse)
 library(magrittr) # mais pipes, como %<>%
 ```
 
-```{r, eval = FALSE}
-library(tidyverse)
-library(magrittr)  # mais pipes, como %<>%
-```
-
 \newpage
 
 ## Exercícios
@@ -53,18 +48,50 @@ Which variables in mpg are categorical? Which variables are continuous? (Hint: t
 mpg
 ```
 
+As variáveis marcadas como <char> são com certeza categoricas, e podemos inferir que provavelmente todas as marcadas como <int> também tem uma grande chance de serem categóricas. Uma forma melhor seria utilizar funções como summary() para ter um nível melhor de informações.
 
 ### 3.3.3
 Map a continuous variable to color, size, and shape. How do these aesthetics behave differently for categorical vs. continuous variables?
 
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(
+             x = displ, y = hwy,
+             color = displ,
+             size = hwy
+           ))
+```
+
+Em primeiro lugar, mapear uma variavel continua para shape retorna um erro.
+As outras características porém criam escalas ao invés de níveis diferentes. O gráfico acima por exemplo pode ter uma quantidade alta de redundâncias, mas é bastante claro por usar das escalas de cor e tamanho para enfatizar os dados dos eixosa cartesianos.
+
 ### 3.3.4
 What happens if you map the same variable to multiple aesthetics?
+
+Acabamos de ver isso no exemplo anterior.
 
 ### 3.3.5
 What does the stroke aesthetic do? What shapes does it work with? (Hint: use ?geom_point)
 
+```{r}
+# ?geom_point ## explicativon, mas bom mesmo é o exemplo abaixo
+# vignette("ggplot2-specs")
+```
+
+"Note that shapes 21-24 have both stroke colour and a fill. The size of the filled part is controlled by size, the size of the stroke is controlled by stroke. Each is measured in mm, and the total size of the point is the sum of the two. Note that the size is constant along the diagonal in the following figure." ou seja, para algumas das formas disponiveis no ggplot stroke determina o tamanho do contorno dessas formas.
+
 ### 3.3.6
 What happens if you map an aesthetic to something other than a variable name, like aes(colour = displ < 5)? Note, you’ll also need to specify x and y.
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(
+             x = displ, y = hwy,
+             color = displ < 5
+             ))
+```
+
+Como podemos ver no gráfico acima utilizar condições envolvendo as variaveis nas aesthetics faz com que ela trate essa separação como trataria uma variavel categorica.
 
 \newpage
 
@@ -73,12 +100,29 @@ What happens if you map an aesthetic to something other than a variable name, li
 ### 3.5.1
 What happens if you facet on a continuous variable?
 
-### 3.5.2
-What do the empty cells in plot with facet_grid(drv ~ cyl) mean? How do they relate to this plot?
 ```{r}
 ggplot(data = mpg) + 
-  geom_point(mapping = aes(x = drv, y = cyl))
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ displ, nrow = 2)
 ```
+
+Em resumo, facet não se entende bem com variaveis continuas, retornando coisas estranhas ao tentar se adequar.
+
+### 3.5.2
+What do the empty cells in plot with facet_grid(drv ~ cyl) mean? How do they relate to this plot?
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(y = drv, x = cyl))
+```
+
+
+```{r}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)
+```
+POdemos facilmente entender que as regioes vazias do segundo exemplo correspondem a combinações de drv e cyl que não existem, isso fica mais claro no primeiro grafico.
 
 ### 3.5.3
 What plots does the following code make? What does . do?
@@ -92,6 +136,8 @@ ggplot(data = mpg) +
   facet_grid(. ~ cyl)
 ```
 
+O '.' é utilizado para denotar todas as outras variaveis disponiveis, e neste caso gera só facets relacionadas a variavel que foi explicitada. o ponto estar do lado esquerdo ou direito da expressao configura se as facets estarao no eixo x ou y
+
 ### 3.5.4
 Take the first faceted plot in this section:
 ```{r}
@@ -99,15 +145,27 @@ ggplot(data = mpg) +
   geom_point(mapping = aes(x = displ, y = hwy)) + 
   facet_wrap(~ class, nrow = 2)
 ```
-
-### 3.5.5
 What are the advantages to using faceting instead of the colour aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?
 
-### 3.5.6
+Com as facetfica muito mais fácil perceber que os 2 seaters tem caracteristicas muito especificas na relação hwy x displ, usando cores, formatos de pontos ou outros metodos dificilmente conseguiriam mostrar tão bem isso devido a pequena quantidade de 2 seaters em relação as outras classes, escondendo esses pontos.
+
+### 3.5.5
 Read ?facet_wrap. What does nrow do? What does ncol do? What other options control the layout of the individual panels? Why doesn’t facet_grid() have nrow and ncol arguments?
 
-### 3.5.7
+```{r}
+# ?facet_wrap
+# ?facet_grid
+```
+
+nrow e ncol são parametros para definir o formato da saida destes graficos, para caso se deseje algum arranjo especifico.
+dir e drop são outros parametros referentes ao layout e determinam a ordem na qual se sequenciam os graficos nas facets, podendo ser horizontal ou vertical. drop é usado para despresar graficos vazios.
+facet_grid nao possui argumento de numero de linhas e colunas pois estes deveriam ser definidos pelas variaveis assignadas para essas dimensões.
+
+
+### 3.5.6
 When using facet_grid() you should usually put the variable with more unique levels in the columns. Why?
+
+Pois normalmente as pessoas usam monitores nas posição horizontal, dessa forma sendo mais confortável ler gráficos mais longos do que altos.
 
 \newpage
 
@@ -115,6 +173,8 @@ When using facet_grid() you should usually put the variable with more unique lev
 
 ### 3.6.1
 What geom would you use to draw a line chart? A boxplot? A histogram? An area chart?
+
+em ordem:  geom_smooth; geom_boxplot; geom_histogram; geom_area
 
 ### 3.6.2
 Run this code in your head and predict what the output will look like. Then, run the code in R and check your predictions.
@@ -124,12 +184,18 @@ ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) +
   geom_smooth(se = FALSE)
 ```
 
+Um grafico com pontos e linhas com os pontos ilustrando as linhas que tentam explicá-los
+
 ### 3.6.3
 What does show.legend = FALSE do? What happens if you remove it?
 Why do you think I used it earlier in the chapter?
 
+Como  eu esqueci de usar show.legend = FALSE no começo destes exercicios fica facil percever o que ele faz. Além de ser bastante óbvio pelo próprio nome.
+
 ### 3.6.4
 What does the se argument to geom_smooth() do?
+
+determina se as curvas virão acompanhadas de uma área ilustrando os intervalos de confiança
 
 ### 3.6.5
 Will these two graphs look different? Why/why not?
@@ -143,8 +209,41 @@ ggplot() +
   geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy))
 ```
 
+Deveriam ser identicos, pois para o ggplot2 onde você define as aesthetics não afeta o resultado final.
+
 ### 3.6.6
 Recreate the R code necessary to generate the following graphs.
+
+```{r}
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point() + 
+  geom_smooth(se = FALSE)
+
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, group = drv)) +
+  geom_point() + 
+  geom_smooth(se = FALSE)
+  
+ggplot(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) +
+  geom_point() + 
+  geom_smooth(se = FALSE)
+
+ggplot() +
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy) , se = FALSE)
+ 
+ggplot() +
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy, color = drv)) + 
+  geom_smooth(data = mpg, mapping = aes(x = displ, y = hwy, linetype = drv) , se = FALSE)
+
+ggplot() + 
+  geom_point(data = mpg, mapping = aes(x = displ, y = hwy, fill = drv, stroke = 3), color = "white" , shape = 21)
+```
+
+
+
+
+
+
 
 \newpage
 
@@ -182,14 +281,41 @@ ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) +
   geom_point()
 ```
 
+```{r}
+ggplot(data = mpg, mapping = aes(x = cty, y = hwy)) + 
+  geom_point(position = "jitter")
+```
+
 ### 3.8.2
 What parameters to geom_jitter() control the amount of jittering?
+
+```{r}
+# ?geom_jitter 
+```
+
+os parametros para controlar aquantidade de variação aleatoria introduzida são 'width' e 'height', e cada um lida com a quantidade de jitter adicionado em sua respectiva orientação.
 
 ### 3.8.3
 Compare and contrast geom_jitter() with geom_count().
 
+```{r}
+x <- ggplot(data = mpg, mapping = aes(x = cty, y = hwy))  
+
+x + geom_jitter()
+x + geom_count()
+```
+
 ### 3.8.4
 What’s the default position adjustment for geom_boxplot()? Create a visualisation of the mpg dataset that demonstrates it.
+
+```{r}
+# ?geom_boxplot
+
+ggplot(data = mpg, mapping = aes(group = drv, y = hwy)) + 
+  geom_boxplot()
+```
+
+position = "dodge2", ou  seja, evitar que se encostem e dispondo os com um pequeno distanciamento
 
 \newpage
 

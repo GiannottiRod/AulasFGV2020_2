@@ -1,0 +1,32 @@
+{
+    "id": "CDD7A226",
+    "path": null,
+    "project_path": null,
+    "type": "r_dataframe",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1603414824176.0,
+    "source_on_save": false,
+    "relative_order": 9,
+    "properties": {
+        "expression": "tb_card",
+        "caption": "tb_card",
+        "totalObservations": 892,
+        "displayedObservations": 892,
+        "variables": 4,
+        "cacheKey": "86D86904",
+        "object": "tb_card",
+        "environment": "",
+        "contentUrl": "grid_resource/gridviewer.html?env=&obj=tb_card&cache_key=86D86904&max_cols=50",
+        "preview": 0
+    },
+    "folds": "",
+    "lastKnownWriteTime": 8391181851031398775,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1603414824176,
+    "read_only": false,
+    "read_only_alternatives": []
+}
